@@ -10,7 +10,6 @@ import ru.raiffeisen.demoapplication.dtos.MarketItemDto
 import ru.raiffeisen.demoapplication.services.MarketItemsService
 
 @Component
-//TODO(CHANGE THROWING EXCEPTION)
 class MarketItemsCommand(
     private val marketItemsService: MarketItemsService,
     private val conversionService: ConversionService
@@ -18,7 +17,7 @@ class MarketItemsCommand(
     override fun process(input: Pageable): OperationValueResult<Page<MarketItemDto>> {
         return marketItemsService.getMarketItems(input).map { page ->
             page.map {
-                conversionService.convert(it, MarketItemDto::class.java) ?: throw IllegalStateException("converter returned null")
+                conversionService.convert(it, MarketItemDto::class.java)
             }
         }
     }
