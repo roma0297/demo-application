@@ -15,6 +15,5 @@ class WebMvcConfiguration : WebMvcConfigurer {
 
     override fun addResourceHandlers(resourceHandlerRegistry: ResourceHandlerRegistry) {
         resourceHandlerRegistry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/")
-//        resourceHandlerRegistry.addResourceHandler("/**").addResourceLocations("classpath:/static/")
     }
 }
