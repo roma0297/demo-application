@@ -1,0 +1,22 @@
+.market-item {
+  width: 380px;
+  height: 500px;
+  margin: 10px;
+
+  &_img {
+    width: 380px !important;
+    height: 275px !important;
+  }
+
+  &_accept-icon {
+
+
+    &--enabled {
+      background-image: url(/assets/img/accepted-icon.svg);
+    }
+
+    &--disabled {
+      background-image: url(/assets/img/accept-icon.svg);
+    }
+  }
+}

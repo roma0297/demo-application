@@ -115,6 +115,10 @@ button.link {
 
 .mat-tab-label {
   justify-content: flex-start !important;
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
 }
 
 .mat-tab-group {
@@ -124,6 +128,10 @@ button.link {
 .mat-tab-label-content {
   font-family: 'Futura', Arial, sans-serif;
   font-weight: 400;
+
+  &:hover {
+    color: black !important;
+  }
 }
 
 .mat-tab-header-pagination {
@@ -131,7 +139,6 @@ button.link {
 }
 
 .mat-tab-header {
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
   min-height: 100vh;
 }
 
@@ -147,6 +154,8 @@ button.link {
 
 .mat-tab-body-content {
   background-color: #f2f2f2a6 !important;
+
+  
 }
 
 // Custom styles for modals & forms

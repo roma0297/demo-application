@@ -1,47 +1,28 @@
-import { Component } from '@angular/core';
-import { ComponentPortal } from '@angular/cdk/portal';
+import { Subscription } from 'node_modules/rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { AnalyticsComponent } from './../analytics/analytics.component';
 import { TTab } from './../../../common/types/market-place.d';
-import { NavigationComponent } from '../navigation/navigation.component';
+import { AccountService } from './../../services/account.service';
 
 @Component({
   selector: 'app-account-page',
   templateUrl: './account-page.component.html',
   styleUrls: ['./account-page.component.scss']
 })
-export class AccountPageComponent {
-  // userSettingsPortal: any;
+export class AccountPageComponent implements OnInit, OnDestroy {
 
-  tabs: TTab[] = [
-    {
-      label: 'Аналитика',
-      content: new ComponentPortal(AnalyticsComponent)
-    },
-    {
-      label: 'Счета и платежи',
-      // content: new ComponentPortal(NavigationComponent)
-    },
-    {
-      label: 'Выписки и отчеты',
-      // content: new ComponentPortal(NavigationComponent)
-    },
-    {
-      label: 'Контрагенты',
-      // content: new ComponentPortal(NavigationComponent)
-    },
-    {
-      label: 'Шаблоны и автоплтежи',
-      // content: new ComponentPortal(NavigationComponent)
-    },
-    {
-      label: 'Расширения',
-      content: new ComponentPortal(NavigationComponent)
-    },
-    {
-      label: 'Кредитная биржа',
-      // content: new ComponentPortal(NavigationComponent)
-    },
-  ];
+  tabs: TTab[] = this.accountService.tabs;
+  private subscriptions: Subscription[] = [];
+
+  constructor(private accountService: AccountService) {}
+
+  ngOnInit() {
+    const subscription = this.accountService.tabsSubject.subscribe((tabs: TTab[]) => this.tabs = tabs);
+    this.subscriptions.push(subscription);
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
+  }
 
 }

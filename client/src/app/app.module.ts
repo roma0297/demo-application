@@ -8,6 +8,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PortalModule } from '@angular/cdk/portal';
 import { ChartsModule } from 'ng2-charts';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,8 @@ import { AccountPageComponent } from './components/account-page/account-page.com
 import { LoginComponent } from './components/login/login.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { AnalyticsComponent } from './components/analytics/analytics.component';
+import { MarketListComponent } from './components/market-list/market-list.component';
+import { MarketItemComponent } from './components/market-item/market-item.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,8 @@ import { AnalyticsComponent } from './components/analytics/analytics.component';
     LoginComponent,
     ButtonComponent,
     AnalyticsComponent,
+    MarketListComponent,
+    MarketItemComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -59,7 +64,8 @@ import { AnalyticsComponent } from './components/analytics/analytics.component';
     BrowserAnimationsModule,
     MatTabsModule,
     PortalModule,
-    ChartsModule
+    ChartsModule,
+    MatCardModule
     // MatSortModule,
     // MatTableModule,
     // MatPaginatorModule,
@@ -70,7 +76,7 @@ import { AnalyticsComponent } from './components/analytics/analytics.component';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    NavigationComponent,
+    MarketListComponent,
     AnalyticsComponent,
 
   ]

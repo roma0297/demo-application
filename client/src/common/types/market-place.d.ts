@@ -1,3 +1,4 @@
+import { ComponentPortal } from '@angular/cdk/portal';
 export type TStep = {
   id: number,
   title: string,
@@ -12,5 +13,18 @@ export type TObject = {
 };
 
 export type TTab = {
-  
+  id: number;
+  label: string,
+  content?: ComponentPortal<any>
 }
+
+export interface IMarketItem {
+  id: number;
+  name: string;
+  subtitle: string;
+  url: string;
+  description: string;
+  enabled: boolean;
+  isShown: boolean;
+}
+

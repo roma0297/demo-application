@@ -1,7 +1,7 @@
 @import '../../../common/styles/index.scss';
 
 .charts {
-  padding: 20px;
+
   .charts_wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -27,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px auto!important;
+    margin: 10px auto!important;
     background-color: $color-white;
   }
   
@@ -42,8 +42,8 @@
     height: 400px !important;
     width: 470px !important;
     margin: 15px;
-    border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    // border-radius: 7px;
+    // box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
   
   .charts_text {
