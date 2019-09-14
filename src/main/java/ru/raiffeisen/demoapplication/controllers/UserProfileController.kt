@@ -9,7 +9,7 @@ import ru.raiffeisen.demoapplication.commands.UserProfileCommand
 
 @RestController
 class UserProfileController(private val userProfileFacade: UserProfileCommand) {
-    @GetMapping("/profile/{id}")
+    @GetMapping("/account/{id}")
     fun getUserProfile(@PathVariable("id") userId: String?): ResponseEntity<Any> {
         val userProfileResult = userProfileFacade.process(userId)
 
