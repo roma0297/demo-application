@@ -6,7 +6,7 @@ import ru.raiffeisen.demoapplication.common.validation.Validator
 @Component
 class UserIdValidator : Validator<String?>() {
     init {
-        addValidation({ userId -> userId != null }, "No user id is provided")
-        addValidation({ userId -> userId?.toIntOrNull() != null }, "Expected user id to be integer")
+        addValidation({ userId -> userId == null }, "No user id is provided")
+        addValidation({ userId -> userId?.toIntOrNull() == null }, "Expected user id to be integer")
     }
 }

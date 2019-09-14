@@ -14,8 +14,8 @@ import ru.raiffeisen.demoapplication.dtos.ControllerError
 class MarketingItemsController(private val marketItemsCommand: RetrieveMarketItemsCommand) {
 
     @GetMapping
-    fun getMarketItems(@RequestParam("page") page: Int,
-                       @RequestParam("size") size: Int): ResponseEntity<Any?> {
+    fun getMarketItems(@RequestParam("page", defaultValue = "0") page: Int,
+                       @RequestParam("size", defaultValue = "10") size: Int): ResponseEntity<Any?> {
         val marketItemsResult = marketItemsCommand.process(PageRequest.of(page, size))
 
         marketItemsResult.ifFailure { errorMessage ->

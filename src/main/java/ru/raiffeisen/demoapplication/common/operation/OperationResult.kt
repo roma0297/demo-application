@@ -3,7 +3,7 @@ package ru.raiffeisen.demoapplication.common.operation
 open class OperationResult protected constructor(@PublishedApi internal val error: String?) {
 
     init {
-        require(!(error == null || error.isBlank())) { "Error message shouldn't be blank" }
+        require(error == null || error.isNotBlank()) { "Error message shouldn't be blank" }
     }
 
     companion object : OperationResultCompanionObjectBuilder<OperationResult>(::OperationResult)

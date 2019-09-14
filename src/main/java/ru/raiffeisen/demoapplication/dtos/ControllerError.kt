@@ -1,4 +1,4 @@
 package ru.raiffeisen.demoapplication.dtos
 
 //TODO(Maybe change to something better)
-data class ControllerError(val errorMessage: String)
+data class ControllerError(val error: String)

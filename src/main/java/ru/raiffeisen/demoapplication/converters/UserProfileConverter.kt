@@ -3,7 +3,7 @@ package ru.raiffeisen.demoapplication.converters
 import org.springframework.stereotype.Component
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.dtos.UserProfileDto
-import ru.raiffeisen.demoapplication.extensions.operationResultMap
+import ru.raiffeisen.demoapplication.extensions.mapTransform
 import ru.raiffeisen.demoapplication.model.UserProfileModel
 
 @Component
@@ -11,7 +11,7 @@ class UserProfileConverter(private val marketItemConverter: MarketItemConverter)
     override fun convert(input: UserProfileModel): OperationValueResult<UserProfileDto> {
         val pluginsDtoResult = input.plugins
                 .map { marketItemConverter.convert(it) }
-                .operationResultMap()
+                .mapTransform()
                 .map { it.toList() }
 
         return pluginsDtoResult.map { plugins ->
