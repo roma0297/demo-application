@@ -8,11 +8,11 @@ import ru.raiffeisen.demoapplication.services.UserProfileService
 import ru.raiffeisen.demoapplication.validator.UserIdValidator
 
 @Component
-class UserProfileCommand(
+class RetrieveUserProfileCommand(
         private val userProfileService: UserProfileService,
         userIdValidator: UserIdValidator
 ): ValidatedValueCommand<String?, UserProfileModel>(userIdValidator) {
     override fun doProcess(validatedInput: String?): OperationValueResult<UserProfileModel> {
-        return userProfileService.getUserPlugins(validatedInput!!.toInt())
+        return userProfileService.getUserProfile(validatedInput!!.toInt())
     }
 }

@@ -8,10 +8,12 @@ import ru.raiffeisen.demoapplication.model.MarketItemModel
 @Component
 class MarketItemConverter : Converter<MarketItemModel, MarketItemDto> {
 
-    override fun convert(source: MarketItemModel): OperationValueResult<MarketItemDto> {
+    override fun convert(input: MarketItemModel): OperationValueResult<MarketItemDto> {
         return OperationValueResult.success(MarketItemDto(
-                name = source.name?.russianTranslation ?: "",
-                description = source.description?.russianTranslation ?: ""
+                name = input.name?.russianTranslation ?: "",
+                url = input.url,
+                price = input.price,
+                description = input.description?.russianTranslation ?: ""
         ))
     }
 }

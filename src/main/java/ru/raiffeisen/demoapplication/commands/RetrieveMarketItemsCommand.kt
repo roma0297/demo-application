@@ -10,7 +10,7 @@ import ru.raiffeisen.demoapplication.dtos.MarketItemDto
 import ru.raiffeisen.demoapplication.services.MarketItemsService
 
 @Component
-class MarketItemsCommand(
+class RetrieveMarketItemsCommand(
     private val marketItemsService: MarketItemsService,
     private val conversionService: ConversionService
 ): Command<Pageable, OperationValueResult<Page<MarketItemDto>>> {
