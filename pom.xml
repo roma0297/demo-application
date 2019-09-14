@@ -27,6 +27,7 @@
     <mockk.version>1.9.3</mockk.version>
     <mockito.version>1.10.19</mockito.version>
     <log4j.version>2.12.1</log4j.version>
+    <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
   </properties>
 
   <dependencyManagement>
@@ -68,10 +69,12 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <!-- MySQL -->
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>${h2.version}</version>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector-java.version}</version>
     </dependency>
 
     <!-- Kotlin support -->
