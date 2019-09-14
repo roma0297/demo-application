@@ -12,6 +12,7 @@ export class ProgressComponent implements OnInit {
 
   windowWidth: number;
   lineWidth: number;
+  status = 'История обработки запроса на открытие ИП и регистрацию счета';
   steps: TStep[] = [
     {
       id: 1,
@@ -56,7 +57,7 @@ export class ProgressComponent implements OnInit {
   ];
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.getBulletLineWidth();
   }
 

@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { TObject } from 'src/common/types/market-place';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   config = {
     formClass: 'login_form',
@@ -13,10 +16,14 @@ export class LoginComponent implements OnInit {
       {
         type: 'column',
         fields: [
-          { type: 'header', value: 'Авторизация' },
+          {
+            type: 'header',
+            value: 'Авторизация',
+            class: ['text-center'],
+          },
           {
             type: 'text',
-            class: 'color-yellow',
+            class: ['color-gray', 'text-center'],
             value: 'Пожалуйста, авторизуйтесь или пройдите регистрацию для продолжения работы с банком.'
           },
           { type: 'divider' }
@@ -39,19 +46,22 @@ export class LoginComponent implements OnInit {
             type: 'input',
             label: 'Пароль',
             errorMessage: 'Пожалуйста, введите пароль',
-            fieldName: 'loginName',
+            fieldName: 'password',
             placeholder: 'Пароль',
             value: '',
             required: true
           },
           { 
             type: 'button',
-            label: 'Пароль',
-            errorMessage: 'Пожалуйста, введите пароль',
-            fieldName: 'loginName',
-            placeholder: 'Пароль',
-            value: '',
-            required: true
+            text: 'Войти в аккаунт',
+            class: 'login_btn--center',
+            buttonType:'submit'
+          },
+          { 
+            type: 'button',
+            text: 'Зарегистрироваться',
+            class: 'login_btn--center',
+            buttonType: 'button'
           },
         ]
       }
@@ -59,9 +69,17 @@ export class LoginComponent implements OnInit {
     ]
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
+  onFormData(formData: TObject) {
+    const data = formData.reduce((acc, { name, value }) => {
+      acc[name] = value;
+      return acc;
+    }, {});
+
+    if (data.loginName === 'admin' && data.password === '1234') {
+      this.router.navigate(['/account']);
+    }
   }
 
 }

@@ -5,4 +5,12 @@ export type TStep = {
   active: boolean,
   tooltipText: string,
   description: string
+};
+
+export type TObject = {
+  [k: string]: any
+};
+
+export type TTab = {
+  
 }

@@ -43,20 +43,20 @@ export interface Fields {
 }
 
 export interface FormResultData {
-  label: string; // For JIRA
+  label: string;
   value: any;
   name: string;
 }
 
 export interface DynamicFormConfig {
-  submitPath?: string | boolean; // Deprecated. Should create submit button via button component
-  submitText?: string; // Deprecated. Should create submit button via button component
-  submitSuccessRedirect?: string; // Deprecated. Should create submit button via button component
+  submitPath?: string | boolean;
+  submitText?: string;
+  submitSuccessRedirect?: string;
   fields: Fields[];
 }
 
 export interface Message {
-  type: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'; // according to bootstrap default notifications
+  type: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
   text: string;
 }
 
@@ -239,25 +239,25 @@ export class DynamicFormComponent implements OnChanges, AfterContentInit, OnDest
   }
 
   onSubmit(preventOnChangedEvent?) {
-    if (this.isCaptchaEnabled) {
-      this.checkCaptcha(preventOnChangedEvent);
-      return;
-    }
+    // if (this.isCaptchaEnabled) {
+    //   this.checkCaptcha(preventOnChangedEvent);
+    //   return;
+    // }
     this.submitForm(preventOnChangedEvent);
   }
 
-  checkCaptcha(preventOnChangedEvent) {
-    const token = this.form.get('recaptchaReactive').value;
-    this.httpClient
-      .get(`/api/check-captcha?token=${token}`)
-      .subscribe(
-        (response: TCheckCaptchaResponse) => {
-          if (response.success) {
-            this.submitForm(preventOnChangedEvent);
-          }
-        },
-        error => console.log(`Error during captcha check: ${error.message}`));
-  }
+  // checkCaptcha(preventOnChangedEvent) {
+  //   const token = this.form.get('recaptchaReactive').value;
+  //   this.httpClient
+  //     .get(`/api/check-captcha?token=${token}`)
+  //     .subscribe(
+  //       (response: TCheckCaptchaResponse) => {
+  //         if (response.success) {
+  //           this.submitForm(preventOnChangedEvent);
+  //         }
+  //       },
+  //       error => console.log(`Error during captcha check: ${error.message}`));
+  // }
 
   submitForm(preventOnChangedEvent) {
     this.markAllAsTouched(this.form);

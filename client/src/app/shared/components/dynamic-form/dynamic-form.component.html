@@ -60,17 +60,19 @@
                   </app-checkbox>
                 </ng-container>
 
-                <!-- <ng-container *ngIf="field.type === 'button'">
-                  <button-el
+                <ng-container *ngIf="field.type === 'button'">
+                  <app-button
                     [form]="form"
                     [id]="field.id"
-                    [label]="field.label"
+                    [label]="field.label || ''"
                     [text]="field.text"
                     [style]="field.style"
                     [params]="field.params"
+                    [class]="field.class"
+                    [type]="field.buttonType"
                     (click)="formEvents('button', $event, field)">
-                  </button-el>
-                </ng-container> -->
+                  </app-button>
+                </ng-container>
 
                 <ng-container *ngIf="field.type === 'textarea'">
                     <app-textarea
@@ -92,7 +94,7 @@
                   <app-content-header
                     [form]="form"
                     [text]="field.value"
-                    [buttons]="field.buttons || []"
+                    [class]="field.class"
                   ></app-content-header>
                 </ng-container>
 

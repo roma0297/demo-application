@@ -1,4 +1,4 @@
 <app-navigation></app-navigation>
 <div class="form">
-  <app-dynamic-form [config]="config"></app-dynamic-form>
+  <app-dynamic-form [config]="config" (onChanged)="onFormData($event)"></app-dynamic-form>
 </div>

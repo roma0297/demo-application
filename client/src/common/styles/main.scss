@@ -14,13 +14,18 @@ fieldset {
   border: unset;
 }
 
-.color-yellow {
-  
+.color-gray {
+  color: #676565;
 }
 
-// .login_form {
+.text-center {
+  text-align: center;
+}
 
-// }
+.login_btn--center {
+  padding: 0 !important;
+  width: 100%;
+}
 
 .btn {
   display: inline-block;
@@ -103,6 +108,22 @@ button.link {
   min-width: 100px;
 }
 
+// Angular material tab change styles
+.mat-tab-labels {
+  flex-direction: column !important;
+}
+
+.mat-tab-group {
+  flex-direction: row !important;
+}
+
+.mat-tab-body-wrapper,
+.mat-tab-body,
+.mat-tab-body-content {
+  width: 100%;
+}
+
+// Custom styles for modals & forms
 .field .form-control:focus {
   border-color: $color-active;
   box-shadow: 0 0 0 1px $color-active;
@@ -114,48 +135,48 @@ button.link {
   outline: 0 none;
 }
 
-.field .input-group-has-hint {
-  flex-wrap: nowrap;
-  align-items: center;
-}
+// .field .input-group-has-hint {
+//   flex-wrap: nowrap;
+//   align-items: center;
+// }
 
-.field .form-control-has-hint {
-  display: inline-block;
-  width: calc(100% - 30px);
-  margin: 0;
-  vertical-align: middle;
-}
+// .field .form-control-has-hint {
+//   display: inline-block;
+//   width: calc(100% - 30px);
+//   margin: 0;
+//   vertical-align: middle;
+// }
 
-.hint-align-top {
-  vertical-align: top;
-}
+// .hint-align-top {
+//   vertical-align: top;
+// }
 
-.modal-dialog.modal-lg {
-  max-width: 920px !important;
-}
+// .modal-dialog.modal-lg {
+//   max-width: 920px !important;
+// }
 
-ngb-modal-backdrop {
-  &.modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.1);
-    &.show {
-      opacity: 1;
-    }
-  }
-}
+// ngb-modal-backdrop {
+//   &.modal-backdrop {
+//     background-color: rgba(0, 0, 0, 0.1);
+//     &.show {
+//       opacity: 1;
+//     }
+//   }
+// }
 
-ngb-modal-window {
-  background-color: inherit;
-  overflow-y: scroll!important;
+// ngb-modal-window {
+//   background-color: inherit;
+//   overflow-y: scroll!important;
 
-  .modal-content {
-    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-    border: none;
-    border-radius: 0!important;
-  }
+//   .modal-content {
+//     box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+//     border: none;
+//     border-radius: 0!important;
+//   }
 
-  pop-up {
-    .add-country-modal {
-      padding: calc(24px + 1rem)!important;
-    }
-  }
-}
+//   pop-up {
+//     .add-country-modal {
+//       padding: calc(24px + 1rem)!important;
+//     }
+//   }
+// }

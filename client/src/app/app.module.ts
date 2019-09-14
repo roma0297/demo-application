@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PortalModule } from '@angular/cdk/portal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { StepComponent } from './components/step/step.component';
 import { AccountPageComponent } from './components/account-page/account-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { ButtonComponent } from './shared/components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { LoginComponent } from './components/login/login.component';
     StepComponent,
     AccountPageComponent,
     LoginComponent,
+    ButtonComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -49,7 +53,9 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     AppRoutingModule,
     MatTooltipModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule,
+    PortalModule
     // MatSortModule,
     // MatTableModule,
     // MatPaginatorModule,
@@ -58,6 +64,9 @@ import { LoginComponent } from './components/login/login.component';
     // MatExpansionModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    NavigationComponent
+  ]
 })
 export class AppModule { }
