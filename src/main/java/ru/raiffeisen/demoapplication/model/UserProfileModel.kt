@@ -45,4 +45,3 @@ data class UserProfileModel(
 
     override fun isAccountNonLocked(): Boolean = false
 }
-

@@ -7,7 +7,7 @@ import ru.raiffeisen.demoapplication.common.command.Command
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.converters.MarketItemConverter
 import ru.raiffeisen.demoapplication.dtos.MarketItemDto
-import ru.raiffeisen.demoapplication.extensions.operationResultMap
+import ru.raiffeisen.demoapplication.extensions.mapTransform
 import ru.raiffeisen.demoapplication.services.MarketItemsService
 
 @Component
@@ -19,7 +19,7 @@ class RetrieveMarketItemsCommand(
         return marketItemsService.getMarketItems(input).flatMap { page ->
             page
                 .map { marketItemConverter.convert(it) }
-                .operationResultMap()
+                .mapTransform()
                 .map { it as Page<MarketItemDto> }
         }
     }
