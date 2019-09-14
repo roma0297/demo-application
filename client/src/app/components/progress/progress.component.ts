@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild, ViewChildren, HostListener } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatStepper, MatStepLabel } from '@angular/material/stepper';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { TStep } from 'src/common/types/market-place';
 
 @Component({

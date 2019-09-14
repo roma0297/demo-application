@@ -7,6 +7,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PortalModule } from '@angular/cdk/portal';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { StepComponent } from './components/step/step.component';
 import { AccountPageComponent } from './components/account-page/account-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { ButtonComponent } from './shared/components/button/button.component';
+import { AnalyticsComponent } from './components/analytics/analytics.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { ButtonComponent } from './shared/components/button/button.component';
     AccountPageComponent,
     LoginComponent,
     ButtonComponent,
+    AnalyticsComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -55,7 +58,8 @@ import { ButtonComponent } from './shared/components/button/button.component';
     MatTooltipModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    PortalModule
+    PortalModule,
+    ChartsModule
     // MatSortModule,
     // MatTableModule,
     // MatPaginatorModule,
@@ -66,7 +70,9 @@ import { ButtonComponent } from './shared/components/button/button.component';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    NavigationComponent
+    NavigationComponent,
+    AnalyticsComponent,
+
   ]
 })
 export class AppModule { }

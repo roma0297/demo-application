@@ -113,14 +113,40 @@ button.link {
   flex-direction: column !important;
 }
 
+.mat-tab-label {
+  justify-content: flex-start !important;
+}
+
 .mat-tab-group {
   flex-direction: row !important;
+}
+
+.mat-tab-label-content {
+  font-family: 'Futura', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.mat-tab-header-pagination {
+  display: none !important;
+}
+
+.mat-tab-header {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  min-height: 100vh;
 }
 
 .mat-tab-body-wrapper,
 .mat-tab-body,
 .mat-tab-body-content {
   width: 100%;
+}
+
+.mat-ink-bar {
+  background-color: white !important;
+}
+
+.mat-tab-body-content {
+  background-color: #f2f2f2a6 !important;
 }
 
 // Custom styles for modals & forms

@@ -1,0 +1,44 @@
+<section class="charts">
+  <h3 c>Аналитика</h3>
+  <div class="charts_wrapper">
+    <div class="charts_container">
+      <p class="charts_text">График расходов за 2019г. по месяцам</p>
+      <canvas class="charts_line"
+        baseChart
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+    <div class="charts_container">
+      <p class="charts_text">График соотношения расходов/доходов по годам</p>
+      <canvas
+        class="charts_bar"
+        baseChart 
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div>
+  <div class="charts_container">
+    <p class="charts_text">График соотношения продаж</p>
+    <canvas
+      class="charts_polar"
+      baseChart
+      [data]="polarAreaChartData"
+      [labels]="polarAreaChartLabels"
+      [legend]="polarAreaLegend"
+      [chartType]="polarAreaChartType">
+    </canvas>
+  </div>
+</section>
+
+  
