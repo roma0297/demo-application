@@ -14,5 +14,7 @@ class MarketItemModel(
         @OneToOne
         val description: LocalizedStringModel? = null,
         @ManyToMany(mappedBy = "plugins")
-        val users: Set<UserProfileModel>
+        val users: Set<UserProfileModel>,
+        @OneToOne
+        val picture: PictureMediaModel
 ) : AbstractJpaPersistable<Long>()

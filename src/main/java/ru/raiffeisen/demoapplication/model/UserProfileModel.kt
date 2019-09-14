@@ -13,5 +13,7 @@ data class UserProfileModel(
                 joinColumns = [JoinColumn(name = "user_id")],
                 inverseJoinColumns = [JoinColumn(name = "market_item_id")]
         )
-        val plugins: Set<MarketItemModel>
+        val plugins: Set<MarketItemModel>,
+        @OneToOne
+        val picture: PictureMediaModel
 ) : AbstractJpaPersistable<Int>()

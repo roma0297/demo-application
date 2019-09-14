@@ -142,6 +142,13 @@
 
     <!-- Spock and Groovy support -->
 
+    <!--  Timestamp uuid generation  -->
+    <dependency>
+      <groupId>com.fasterxml.uuid</groupId>
+      <artifactId>java-uuid-generator</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>
