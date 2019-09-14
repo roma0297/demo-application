@@ -15,7 +15,6 @@ class MarketItemConverter(
         return OperationValueResult.success(MarketItemDto(
                 name = localizationService.localize(input.name),
                 url = input.url,
-                price = input.price,
                 description = localizationService.localize(input.description)
         ))
     }

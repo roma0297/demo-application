@@ -30,7 +30,7 @@ data class UserProfileModel(
     val picture: PictureMediaModel? = null,
     @OneToMany(fetch = FetchType.EAGER)
     val userAuthorities: Set<AuthorityModel> = emptySet(),
-    val locale: Locale
+    val locale: Locale = Locale.ENGLISH
 ) : AbstractJpaPersistable<Int>(), UserDetails {
 
     override fun getAuthorities(): Set<GrantedAuthority> = userAuthorities
@@ -39,11 +39,11 @@ data class UserProfileModel(
 
     override fun getUsername(): String = email
 
-    override fun isCredentialsNonExpired(): Boolean = false
+    override fun isCredentialsNonExpired(): Boolean = true
 
     override fun getPassword(): String = userPassword
 
-    override fun isAccountNonExpired(): Boolean = false
+    override fun isAccountNonExpired(): Boolean = true
 
-    override fun isAccountNonLocked(): Boolean = false
+    override fun isAccountNonLocked(): Boolean = true
 }
