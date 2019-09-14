@@ -19,7 +19,7 @@ open class OperationValueResult<T> protected constructor(@PublishedApi internal 
         if (isSuccess) action(value!!)
     }
 
-    inline fun <R> map(transform: (value: T) -> R): OperationValueResult<out R> {
+    inline fun <R> map(transform: (value: T) -> R): OperationValueResult<R> {
         return when (value) {
             null -> failure(error!!)
             else -> success(transform(value))

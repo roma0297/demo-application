@@ -1,15 +1,15 @@
 package ru.raiffeisen.demoapplication.controllers
 
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import ru.raiffeisen.demoapplication.dtos.ControllerError
-import ru.raiffeisen.demoapplication.facades.UserProfileFacade
+import ru.raiffeisen.demoapplication.commands.UserProfileCommand
 
 @RestController
-class UserProfileController(private val userProfileFacade: UserProfileFacade) {
-    @RequestMapping("/profile/{id}")
+class UserProfileController(private val userProfileFacade: UserProfileCommand) {
+    @GetMapping("/profile/{id}")
     fun getUserProfile(@PathVariable("id") userId: String?): ResponseEntity<Any> {
         val userProfileResult = userProfileFacade.process(userId)
 

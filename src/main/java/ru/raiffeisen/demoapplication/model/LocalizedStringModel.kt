@@ -6,7 +6,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "localized_strings")
-class LocalizedString(
+class LocalizedStringModel(
     @Column(name = "english_translation")
     val englishTranslation: String = "",
     @Column(name = "russian_translation")

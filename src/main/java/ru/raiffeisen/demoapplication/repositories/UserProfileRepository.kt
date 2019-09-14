@@ -1,6 +1,8 @@
 package ru.raiffeisen.demoapplication.repositories
 
 import org.springframework.data.repository.CrudRepository
-import ru.raiffeisen.demoapplication.model.UserProfile
+import org.springframework.stereotype.Repository
+import ru.raiffeisen.demoapplication.model.UserProfileModel
 
-interface UserProfileRepository : CrudRepository<UserProfile, Int>
+@Repository
+interface UserProfileRepository : CrudRepository<UserProfileModel, Int>

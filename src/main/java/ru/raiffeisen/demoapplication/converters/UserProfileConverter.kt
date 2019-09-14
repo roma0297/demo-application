@@ -1,17 +1,25 @@
 package ru.raiffeisen.demoapplication.converters
 
-import org.springframework.core.convert.converter.Converter
 import org.springframework.stereotype.Component
+import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.dtos.UserProfileDto
-import ru.raiffeisen.demoapplication.model.UserProfile
+import ru.raiffeisen.demoapplication.extensions.operationResultMap
+import ru.raiffeisen.demoapplication.model.UserProfileModel
 
 @Component
-class UserProfileConverter(val pluginConverter: PluginConverter) : Converter<UserProfile, UserProfileDto> {
-    override fun convert(source: UserProfile): UserProfileDto? {
-        return UserProfileDto(
-                firstName = source.firstName,
-                lastName = source.lastName,
-                plugins = source.plugins.mapNotNull { pluginConverter.convert(it) }
-        )
+class UserProfileConverter(private val marketItemConverter: MarketItemConverter): Converter<UserProfileModel, UserProfileDto> {
+    override fun convert(input: UserProfileModel): OperationValueResult<UserProfileDto> {
+        val pluginsDtoResult = input.plugins
+                .map { marketItemConverter.convert(it) }
+                .operationResultMap()
+                .map { it.toList() }
+
+        return pluginsDtoResult.map { plugins ->
+            UserProfileDto(
+                firstName = input.firstName,
+                lastName = input.lastName,
+                plugins = plugins
+            )
+        }
     }
 }

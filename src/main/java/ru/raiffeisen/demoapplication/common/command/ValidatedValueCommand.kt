@@ -1,11 +1,11 @@
-package ru.raiffeisen.demoapplication.common.facade
+package ru.raiffeisen.demoapplication.common.command
 
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.common.validation.Validator
 
-abstract class ValidatedValueFacade<in T, R>(
+abstract class ValidatedValueCommand<in T, R>(
         private val validator: Validator<T>
-) : Facade<T, OperationValueResult<R>> {
+) : Command<T, OperationValueResult<R>> {
 
     override fun process(input: T): OperationValueResult<R> {
         val validationResult = validator.validate(input)

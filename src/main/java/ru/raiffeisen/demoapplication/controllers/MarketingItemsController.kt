@@ -2,21 +2,26 @@ package ru.raiffeisen.demoapplication.controllers
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import ru.raiffeisen.demoapplication.dtos.MarketItemDto
-import ru.raiffeisen.demoapplication.facades.MarketItemsFacade
+import ru.raiffeisen.demoapplication.commands.MarketItemsCommand
+import ru.raiffeisen.demoapplication.dtos.ControllerError
 
 @RestController
 @RequestMapping("/account/marketplace")
-class MarketingItemsController(private val marketItemsFacade: MarketItemsFacade) {
+class MarketingItemsController(private val marketItemsFacade: MarketItemsCommand) {
 
     @GetMapping
     fun getMarketItems(@RequestParam("page") page: Int,
-                       @RequestParam("size") size: Int): Page<MarketItemDto> {
-        return marketItemsFacade.getMarketItems(PageRequest.of(page, size)).getOrDefault(Page.empty())
-    }
+                       @RequestParam("size") size: Int): ResponseEntity<Any?> {
+        val marketItemsResult = marketItemsFacade.process(PageRequest.of(page, size))
 
+        marketItemsResult.ifFailure { errorMessage ->
+            return ResponseEntity.badRequest().body(ControllerError(errorMessage))
+        }
+        return ResponseEntity.ok(marketItemsResult.value!!)
+    }
 }

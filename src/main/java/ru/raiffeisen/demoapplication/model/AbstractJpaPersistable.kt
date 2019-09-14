@@ -10,27 +10,25 @@ import java.io.Serializable
 abstract class AbstractJpaPersistable<T : Serializable> {
 
 	companion object {
-private val serialVersionUID = -5554308939380869754L
+		private val serialVersionUID = -5554308939380869754L
 	}
 
-@Id
-@GeneratedValue
-private var id: T? = null
+	@Id
+	@GeneratedValue
+	private var id: T? = null
 
 	fun getId(): T? {
-	return id
+		return id
 	}
 
 	override fun equals(other: Any?): Boolean {
-	other ?: return false
+		other ?: return false
 
-	if (this === other) return true
+		if (this === other) return true
+		if (javaClass != ProxyUtils.getUserClass(other)) return false
+		other as AbstractJpaPersistable<*>
 
-	if (javaClass != ProxyUtils.getUserClass(other)) return false
-
-	other as AbstractJpaPersistable<*>
-
-	return if (null == this.getId()) false else this.getId() == other.getId()
+		return if (null == this.getId()) false else this.getId() == other.getId()
 	}
 
 	override fun hashCode(): Int = 31
