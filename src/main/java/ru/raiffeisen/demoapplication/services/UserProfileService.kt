@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service
 import ru.raiffeisen.demoapplication.model.MarketItemModel
 import ru.raiffeisen.demoapplication.model.UserProfileModel
 import ru.raiffeisen.demoapplication.repositories.UserProfileRepository
+import org.springframework.security.core.context.SecurityContextHolder
+
+
 
 @Service
 class UserProfileService(private val userProfileRepository: UserProfileRepository) {
@@ -22,6 +25,15 @@ class UserProfileService(private val userProfileRepository: UserProfileRepositor
 
     fun getUserPlugins(userId: Int): OperationValueResult<Set<MarketItemModel>> {
         return getUserProfile(userId).map { it.plugins }
+    }
+
+    fun getCurrentUser(): UserProfileModel? {
+        return try {
+            SecurityContextHolder.getContext().authentication.principal as UserProfileModel
+        } catch (e: Exception) {
+            null
+        }
+
     }
 
     companion object {

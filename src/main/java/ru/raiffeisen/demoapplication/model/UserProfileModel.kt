@@ -2,6 +2,7 @@ package ru.raiffeisen.demoapplication.model
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
+import java.util.*
 import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.JoinColumn
@@ -28,7 +29,8 @@ data class UserProfileModel(
     @OneToOne
     val picture: PictureMediaModel? = null,
     @OneToMany(fetch = FetchType.EAGER)
-    val userAuthorities: Set<AuthorityModel> = emptySet()
+    val userAuthorities: Set<AuthorityModel> = emptySet(),
+    val locale: Locale
 ) : AbstractJpaPersistable<Int>(), UserDetails {
 
     override fun getAuthorities(): Set<GrantedAuthority> = userAuthorities
