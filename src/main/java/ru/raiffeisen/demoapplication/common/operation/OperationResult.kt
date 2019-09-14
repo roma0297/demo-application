@@ -3,7 +3,7 @@ package com.raiffeisen.javahack.core.operation
 open class OperationResult protected constructor(@PublishedApi internal val error: String?) {
 
     init {
-        error?.ifBlank {
+        if (error == null || error.isBlank()) {
             throw IllegalArgumentException("Error message shouldn't be blank")
         }
     }
