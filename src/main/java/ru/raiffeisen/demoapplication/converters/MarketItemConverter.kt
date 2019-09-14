@@ -12,7 +12,6 @@ class MarketItemConverter : Converter<MarketItemModel, MarketItemDto> {
         return OperationValueResult.success(MarketItemDto(
                 name = input.name?.russianTranslation ?: "",
                 url = input.url,
-                price = input.price,
                 description = input.description?.russianTranslation ?: ""
         ))
     }

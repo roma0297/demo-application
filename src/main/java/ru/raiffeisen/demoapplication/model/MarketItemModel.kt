@@ -11,8 +11,6 @@ import javax.persistence.Table
 class MarketItemModel(
         @Column(name = "url")
         val url: String = "",
-        @Column(name = "price")
-        val price: Double = 0.0,
         @OneToOne
         val name: LocalizedStringModel? = null,
         @OneToOne
