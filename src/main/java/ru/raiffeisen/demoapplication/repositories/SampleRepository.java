@@ -1,6 +1,6 @@
 package ru.raiffeisen.demoapplication.repositories;
 
-import com.raiffeisen.javahack.core.operation.OperationValueResult;
+import ru.raiffeisen.demoapplication.common.operation.OperationValueResult;
 import org.springframework.stereotype.Repository;
 import ru.raiffeisen.demoapplication.model.SampleModel;
 

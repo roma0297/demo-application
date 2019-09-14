@@ -1,4 +1,4 @@
-package com.raiffeisen.javahack.core.operation
+package ru.raiffeisen.demoapplication.common.operation
 
 open class OperationValueResult<T> protected constructor(@PublishedApi internal val value: T?,
                                                          error: String?) : OperationResult(error) {

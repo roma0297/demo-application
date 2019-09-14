@@ -1,6 +1,6 @@
 package ru.raiffeisen.demoapplication.facades;
 
-import com.raiffeisen.javahack.core.operation.OperationValueResult;
+import ru.raiffeisen.demoapplication.common.operation.OperationValueResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.convert.ConversionException;

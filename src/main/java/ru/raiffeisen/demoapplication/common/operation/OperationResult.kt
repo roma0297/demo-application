@@ -1,11 +1,9 @@
-package com.raiffeisen.javahack.core.operation
+package ru.raiffeisen.demoapplication.common.operation
 
 open class OperationResult protected constructor(@PublishedApi internal val error: String?) {
 
     init {
-        if (error == null || error.isBlank()) {
-            throw IllegalArgumentException("Error message shouldn't be blank")
-        }
+        require(!(error == null || error.isBlank())) { "Error message shouldn't be blank" }
     }
 
     companion object : OperationResultCompanionObjectBuilder<OperationResult>(::OperationResult)
