@@ -14,7 +14,7 @@ import javax.persistence.Table
 @Table(name = "translatable_items")
 abstract class AbstractMediaModel(
     @Column(name = "fileSystemPath")
-    val fileSystemPath: String = "",
+    open val fileSystemPath: String = "",
     @Column(name = "createDateTime")
-    val createDateTime: LocalDateTime = LocalDateTime.now()
+    open val createDateTime: LocalDateTime = LocalDateTime.now()
 ) : AbstractJpaPersistable<Long>()

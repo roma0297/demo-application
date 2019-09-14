@@ -14,21 +14,21 @@ import javax.persistence.Table
 @Entity
 @Table(name = "user_profile")
 data class UserProfileModel(
-    val email: String,
-    val userPassword: String,
-    val firstName: String,
-    val lastName: String,
+    val email: String = "",
+    val userPassword: String = "",
+    val firstName: String = "",
+    val lastName: String = "",
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "user_profile_market_items",
         joinColumns = [JoinColumn(name = "user_id")],
         inverseJoinColumns = [JoinColumn(name = "market_item_id")]
     )
-    val plugins: Set<MarketItemModel>,
+    val plugins: Set<MarketItemModel> = emptySet(),
     @OneToOne
-    val picture: PictureMediaModel,
+    val picture: PictureMediaModel? = null,
     @OneToMany(fetch = FetchType.EAGER)
-    val userAuthorities: Set<AuthorityModel>
+    val userAuthorities: Set<AuthorityModel> = emptySet()
 ) : AbstractJpaPersistable<Int>(), UserDetails {
 
     override fun getAuthorities(): Set<GrantedAuthority> = userAuthorities
@@ -45,3 +45,4 @@ data class UserProfileModel(
 
     override fun isAccountNonLocked(): Boolean = false
 }
+
