@@ -9,13 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.crypto.password.NoOpPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
-import ru.raiffeisen.demoapplication.services.UserProfileService
-
+import ru.raiffeisen.demoapplication.services.UserContextService
 
 @Configuration
 @EnableWebSecurity
 class SecurityConfiguration(
-    val userProfileService: UserProfileService
+    val userContextService: UserContextService
 ) : WebSecurityConfigurerAdapter() {
 
     @Throws(Exception::class)
@@ -26,15 +25,13 @@ class SecurityConfiguration(
     @Bean
     fun authenticationProvider(): DaoAuthenticationProvider {
         val authProvider = DaoAuthenticationProvider()
-        authProvider.setUserDetailsService(userProfileService)
+        authProvider.setUserDetailsService(userContextService)
         authProvider.setPasswordEncoder(passwordEncoder())
         return authProvider
     }
 
     @Bean
-    fun passwordEncoder(): PasswordEncoder {
-        return NoOpPasswordEncoder.getInstance()
-    }
+    fun passwordEncoder(): PasswordEncoder = NoOpPasswordEncoder.getInstance()
 
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {

@@ -1,8 +1,5 @@
 package ru.raiffeisen.demoapplication.common.validation
 
-/**
- * Abstract class to support object validation
- */
 abstract class Validator<T> {
     private val validations : MutableList<Pair<(T) -> Boolean, String>> = mutableListOf()
 

@@ -1,19 +1,13 @@
 package ru.raiffeisen.demoapplication.common.operation
 
-open class OperationValueResult<T> protected constructor(@PublishedApi internal val value: T?,
-                                                         error: String?) : OperationResult(error) {
-
-    companion object {
-        fun <T> failure(error: String) = OperationValueResult<T>(null, error)
-
-        fun <T> success(value: T) = OperationValueResult(value, null)
-    }
+open class OperationValueResult<T> protected constructor(
+    @PublishedApi internal val value: T?,
+    error: String?
+) : OperationResult(error) {
 
     fun getOrNull(): T? = value
 
-    fun getOrDefault(defaultValue: T): T {
-        return value ?: defaultValue
-    }
+    fun getOrDefault(defaultValue: T): T = value ?: defaultValue
 
     inline fun ifSuccess(action: (value: T) -> Unit) {
         if (isSuccess) action(value!!)
@@ -31,5 +25,11 @@ open class OperationValueResult<T> protected constructor(@PublishedApi internal 
             null -> failure(error!!)
             else -> transform(value)
         }
+    }
+
+    companion object {
+        fun <T> failure(error: String): OperationValueResult<T> = OperationValueResult(null, error)
+
+        fun <T> success(value: T): OperationValueResult<T> = OperationValueResult(value, null)
     }
 }

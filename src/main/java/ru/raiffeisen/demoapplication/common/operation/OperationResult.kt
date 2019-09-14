@@ -1,12 +1,12 @@
 package ru.raiffeisen.demoapplication.common.operation
 
-open class OperationResult protected constructor(@PublishedApi internal val error: String?) {
+open class OperationResult protected constructor(
+    @PublishedApi internal val error: String?
+) {
 
     init {
         require(error == null || error.isNotBlank()) { "Error message shouldn't be blank" }
     }
-
-    companion object : OperationResultCompanionObjectBuilder<OperationResult>(::OperationResult)
 
     val isSuccess: Boolean
         get() = error == null
@@ -30,5 +30,7 @@ open class OperationResult protected constructor(@PublishedApi internal val erro
     inline fun ifFailure(action: (error: String) -> Unit) {
         if (isFailure) action(error!!)
     }
+
+    companion object : OperationResultCompanionObjectBuilder<OperationResult>(::OperationResult)
 }
 

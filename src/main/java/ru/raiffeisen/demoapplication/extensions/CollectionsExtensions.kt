@@ -3,23 +3,17 @@ package ru.raiffeisen.demoapplication.extensions
 import ru.raiffeisen.demoapplication.common.operation.OperationResult
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 
-fun <T> Iterable<OperationValueResult<T>>.mapTransform(): OperationValueResult<Iterable<T>> {
-    val firstErrorResult = firstOrNull { it.isFailure }
-    return if (firstErrorResult == null) {
-        OperationValueResult.success(map { it.value!! })
-    } else {
-        OperationValueResult.failure(firstErrorResult.error!!)
+//TODO(These functions can be implemented in parallel)
+fun <T, R> Iterable<T>.mapOperationTransform(transform: (T) -> OperationValueResult<R>): OperationValueResult<List<R>> {
+    val destination = arrayListOf<R>()
+    for (element in this) {
+        val transformedResult = transform(element)
+        transformedResult.ifFailure { return OperationValueResult.failure(transformedResult.error!!) }
+        destination += transformedResult.value!!
     }
+    return OperationValueResult.success(destination)
 }
 
-fun <T> List<OperationValueResult<T>>.listMapTransform(): OperationValueResult<List<T>> {
-    return mapTransform().map { it as List<T> }
-}
-
-fun <T> MutableList<OperationValueResult<T>>.mutableListMapTransform(): OperationValueResult<MutableList<T>> {
-    return mapTransform().map { it as MutableList<T> }
-}
-
-fun Iterable<OperationResult>.mapTransform(): OperationResult {
+fun Iterable<OperationResult>.mapOperationTransform(): OperationResult {
     return firstOrNull { it.isFailure } ?: OperationResult.success()
 }

@@ -13,7 +13,6 @@ abstract class ValidatedCommand<in T>(
         if (validationResult.isFailure) {
             return validationResult
         }
-
         return doProcess(input)
     }
 

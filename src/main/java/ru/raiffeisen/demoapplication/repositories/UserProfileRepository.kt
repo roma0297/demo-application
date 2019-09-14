@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository
 import ru.raiffeisen.demoapplication.model.UserProfileModel
 
 @Repository
-interface UserProfileRepository : CrudRepository<UserProfileModel, Int> {
+interface UserProfileRepository : CrudRepository<UserProfileModel, Long> {
     fun findAllByEmail(email: String): List<UserProfileModel>
 }
-

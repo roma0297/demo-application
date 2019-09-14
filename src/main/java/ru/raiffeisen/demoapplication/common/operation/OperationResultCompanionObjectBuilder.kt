@@ -5,5 +5,5 @@ open class OperationResultCompanionObjectBuilder<T>(private val factory: (error:
 
     fun success(): T = successSingleton
 
-    fun failure(error: String) = factory(error)
+    fun failure(error: String): T = factory(error)
 }

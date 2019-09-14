@@ -6,12 +6,13 @@ import ru.raiffeisen.demoapplication.model.LocalizedStringModel
 import java.util.Locale
 
 @Service
-class LocalisationService {
+class LocalizationService {
 
     fun localize(localizedString: LocalizedStringModel?): String {
-        return if (Locale.ENGLISH == LocaleContextHolder.getLocale())
+        return if (Locale.ENGLISH == LocaleContextHolder.getLocale()) {
             localizedString?.englishTranslation ?: ""
-        else localizedString?.russianTranslation ?: ""
+        } else {
+            localizedString?.russianTranslation ?: ""
+        }
     }
-
 }

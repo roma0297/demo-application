@@ -14,7 +14,5 @@ class AuthorityModel : AbstractJpaPersistable<Long>(), GrantedAuthority {
         this.role = role
     }
 
-    override fun getAuthority(): String? {
-        return role
-    }
+    override fun getAuthority(): String? = role
 }

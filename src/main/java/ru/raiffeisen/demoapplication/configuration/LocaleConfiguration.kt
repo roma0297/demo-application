@@ -7,18 +7,18 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor
 import ru.raiffeisen.demoapplication.repositories.UserProfileRepository
-import ru.raiffeisen.demoapplication.resolvers.ApplicationLocaleResolver
-import ru.raiffeisen.demoapplication.services.UserProfileService
+import ru.raiffeisen.demoapplication.services.resolvers.ApplicationLocaleResolver
+import ru.raiffeisen.demoapplication.services.UserContextService
 
 @Configuration
 class LocaleConfiguration(
-    val userProfileService: UserProfileService,
-    val userProfileRepository: UserProfileRepository
+    val userProfileRepository: UserProfileRepository,
+    val userContextService: UserContextService
 ) : WebMvcConfigurer {
 
     @Bean
     fun localeResolver(): LocaleResolver {
-        return ApplicationLocaleResolver(userProfileService, userProfileRepository)
+        return ApplicationLocaleResolver(userProfileRepository, userContextService)
     }
 
     @Bean
