@@ -1,0 +1,10 @@
+<app-navigation></app-navigation>
+<section class="stepper">
+  <h4>{{ status }}</h4>
+  
+  <div class="stepper_bullets">
+    <ng-container *ngFor="let step of steps">
+        <app-step [isVertical]="false" [lineWidth]="windowWidth / steps.length - 50" [step]="step"></app-step>
+    </ng-container>
+  </div>
+</section>

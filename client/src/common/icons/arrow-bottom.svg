@@ -1,0 +1,18 @@
+<svg id="Icons_arrow_small" data-name="Icons/arrow small" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Shape_622_copy_15" d="M6.094,12.8a.734.734,0,0,0,1.027,0l.687-.675a.708.708,0,0,0,0-1.011L3.147,6.508,7.808,1.9a.707.707,0,0,0,0-1.01L7.121.21a.734.734,0,0,0-1.027,0L.213,6a.706.706,0,0,0,0,1.011Z" transform="translate(13.014) rotate(90)" fill="#252e33"/>
+    </clipPath>
+  </defs>
+  <rect id="Icons_arrow_small_background" data-name="Icons/arrow small background" width="16" height="16" fill="rgba(0,0,0,0)"/>
+  <g id="Icons_Color_One_arrow_small" data-name="Icons/Color_One/arrow small" transform="translate(16 16) rotate(180)">
+    <rect id="Icons_Color_One_arrow_small_background" data-name="Icons/Color_One/arrow small background" width="16" height="16" transform="translate(16 16) rotate(180)" fill="rgba(0,0,0,0)"/>
+    <path id="Shape_622_copy_15-2" data-name="Shape_622_copy_15" d="M6.094,12.8a.734.734,0,0,0,1.027,0l.687-.675a.708.708,0,0,0,0-1.011L3.147,6.508,7.808,1.9a.707.707,0,0,0,0-1.01L7.121.21a.734.734,0,0,0-1.027,0L.213,6a.706.706,0,0,0,0,1.011Z" transform="translate(14.517 4.483) rotate(90)" fill="#252e33"/>
+    <g id="Group_23" data-name="Group 23" transform="translate(1.503 4.483)" clip-path="url(#clip-path)">
+      <g id="_Color" data-name="🎨 Color" transform="translate(-1.503 -4.483)">
+        <rect id="_Color_background" data-name="🎨 Color background" width="16" height="16" transform="translate(16 16) rotate(180)" fill="rgba(0,0,0,0)"/>
+        <rect id="Colour_Greyscale_900" data-name="Colour/Greyscale/900" width="16" height="16" transform="translate(16 16) rotate(180)" fill="#3e4d55"/>
+      </g>
+    </g>
+  </g>
+</svg>

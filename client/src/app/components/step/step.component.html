@@ -1,0 +1,18 @@
+<div class="step">
+  <div class="step-wrapper" [ngClass]="{'step--vertical': isVertical}">
+    <div
+      *ngIf="step.id !== 1"
+      [ngStyle]="{'width': lineWidth + 'px'}"
+      class="step_progress-line"
+      [ngClass]="{'step_progress-line--pending': !step.finished, 'step_progress-line--finished': step.finished}">
+    </div>
+    <div
+      class="step_bullet"
+      [matTooltip]="step.tooltipText"
+      matTooltipPosition="above"
+      [ngClass]="{'step_progress-line--pending': !step.finished, 'step_progress-line--finished': step.finished}">
+        {{ step.id }}
+    </div>
+  </div>
+  <div *ngIf="step.active" class="step_description">{{ step.description }}</div>
+</div>

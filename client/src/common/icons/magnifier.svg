@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Shape" d="M14.918,16a.374.374,0,0,1-.266-.111L10.859,12.1a.386.386,0,0,1-.109-.265v-.412a6.5,6.5,0,1,1,.669-.669h.412a.376.376,0,0,1,.266.109l3.793,3.793a.375.375,0,0,1,0,.532l-.706.706A.372.372,0,0,1,14.918,16ZM6.5,1.5a5,5,0,1,0,5,5A5.005,5.005,0,0,0,6.5,1.5Z" fill="#252e33"/>
+    </clipPath>
+  </defs>
+  <g transform="translate(0 0)" clip-path="url(#clip-path)">
+    <g id="_Color" data-name="🎨 Color">
+      <rect id="_Color_background" data-name="🎨 Color background" width="16" height="16" fill="rgba(0,0,0,0)"/>
+      <rect id="Colour_Greyscale_400" data-name="Colour/Greyscale/400" width="16" height="16" fill="#b1c3cc"/>
+    </g>
+  </g>
+</svg>

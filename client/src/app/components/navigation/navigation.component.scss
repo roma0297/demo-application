@@ -1,0 +1,54 @@
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 5px 15px 0px 15px;
+  z-index: 600;
+  min-width: 320px;
+  height: 60px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+  .logo {
+    background-image: url(/assets/img/sprite_x2.png);
+    background-size: 396px 171px;
+    display: block;
+    float: left;
+    width: 160px;
+    height: 35px;
+    margin-top: 9px;
+  }
+
+  .phone {
+    float: right;
+    text-align: left;
+    font-size: 17px;
+    color: #000000;
+    line-height: 1;
+    margin-top: 6px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .number {
+      font-size: 20px;
+      display: block;
+      text-align: left;
+      color: #000000;
+      line-height: 1;
+    }
+  }
+
+  
+  .btn {
+    padding: 6px 0 7px;
+    width: 185px;
+    font-size: 21px;
+    margin: 2px auto;
+    display: none;
+    text-transform: none;
+  }
+}

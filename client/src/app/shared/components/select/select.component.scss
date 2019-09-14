@@ -1,0 +1,26 @@
+@import '../../../../common/styles/index.scss';
+
+:host {
+  margin-top: $input-margin-top;
+  height: $input-height;
+  border-radius: $input-border-radious;
+  font-size: $input-font-size;
+
+  ::placeholder {
+    color: $input-placeholder-color;
+  }
+
+  label {
+    font-size: $input-label-font-size;
+  }
+
+  .disabled-mask {
+    position: absolute;
+    background-color: #fff;
+    opacity: 0.5;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+}

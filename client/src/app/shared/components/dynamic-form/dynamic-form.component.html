@@ -1,0 +1,135 @@
+<form [formGroup]="form" (submit)="onSubmit()"><!-- Submit event is deprecated. Should use button in config instead -->
+  <fieldset [disabled]="readOnly ? 'disabled' : ''">
+    <div class="row">
+        <div *ngFor="let column of fields" [class]="'col dynamic-form__column ' + getColumnClass(column.columnSize)">
+
+            <ng-container *ngFor="let field of column.fields">
+                <ng-container *ngIf="field.type === 'input'">
+                    <app-input
+                        [form]="form"
+                        [name]="field.fieldName"
+                        [value]="field.value || ''"
+                        [label]="field.label"
+                        [placeholder]="field.placeholder || ''"
+                        [required]="field.required"
+                        [hint]="field.hint || ''"
+                        [errorMessage]="field.errorMessage || ''"
+                        [hidden]="field.hidden"
+                        [disabled]="field.disabled">
+                    </app-input>
+                </ng-container>
+
+                <!-- <ng-container *ngIf="field.type === 'date'">
+                  <date-input
+                    [form]="form"
+                    [name]="field.fieldName"
+                    [value]="field.value || ''"
+                    [label]="field.label"
+                    [placeholder]="field.placeholder || ''"
+                    [hint]="field.hint || ''"
+                    [errorMessage]="field.errorMessage || ''"
+                    [required]="field.required">
+                  </date-input>
+                </ng-container> -->
+
+                <ng-container *ngIf="field.type === 'select'">
+                    <app-select
+                        [form]="form"
+                        [name]="field.fieldName"
+                        [label]="field.label"
+                        [placeholder]="field.placeholder || ''"
+                        [required]="field.required"
+                        [options]="field.options"
+                        [api]="field.api"
+                        [hidden]="field.hidden"
+                        [hint]="field.hint || ''"
+                        [errorMessage]="field.errorMessage || ''"
+                        [haveEmptyOption]="field.haveEmptyOption"
+                        [disabled]=field.disabled>
+                    </app-select>
+                </ng-container>
+
+                <ng-container *ngIf="field.type === 'checkbox'">
+                  <app-checkbox
+                    [form]="form"
+                    [name]="field.fieldName"
+                    [value]="field.value"
+                    [label]="field.label"
+                    [hint]="field.hint || ''"
+                    [checked]="field.checked">
+                  </app-checkbox>
+                </ng-container>
+
+                <!-- <ng-container *ngIf="field.type === 'button'">
+                  <button-el
+                    [form]="form"
+                    [id]="field.id"
+                    [label]="field.label"
+                    [text]="field.text"
+                    [style]="field.style"
+                    [params]="field.params"
+                    (click)="formEvents('button', $event, field)">
+                  </button-el>
+                </ng-container> -->
+
+                <ng-container *ngIf="field.type === 'textarea'">
+                    <app-textarea
+                        [form]="form"
+                        [name]="field.fieldName"
+                        [value]="field.value || ''"
+                        [label]="field.label"
+                        [placeholder]="field.placeholder || ''"
+                        [hint]="field.hint || ''"
+                        [errorMessage]="field.errorMessage || ''"
+                        [required]="field.required"
+                        [minHeight]="field.minHeight"
+                        [maxHeight]="field.maxHeight"
+                      >
+                    </app-textarea>
+                </ng-container>
+
+                <ng-container *ngIf="field.type === 'header'">
+                  <app-content-header
+                    [form]="form"
+                    [text]="field.value"
+                    [buttons]="field.buttons || []"
+                  ></app-content-header>
+                </ng-container>
+
+                <ng-container *ngIf="field.type === 'text'">
+                    <p [ngClass]="field.class || ''" [innerHTML]="field.value"></p>
+                </ng-container>
+
+                <ng-container *ngIf="field.type === 'bold-text'">
+                    <h4 class="dynamic-form__bold-text">{{field.value}}</h4>
+                </ng-container>
+
+                <ng-container *ngIf="field.type === 'divider'">
+                    <hr />
+                </ng-container>
+
+            </ng-container>
+        </div>
+    </div>
+
+    <div *ngIf="message" class="alert alert-{{message.type}}" role="alert">
+      {{message.text}}
+    </div>
+
+    <!-- Deprecated. Should use button in config instead -->
+    <div class="confirm-block" *ngIf="canSubmit">
+      <ng-container *ngIf="!step; else stepButtons">
+        <!-- <re-captcha *ngIf="isCaptchaEnabled" formControlName="recaptchaReactive"></re-captcha> -->
+        <button type="submit" class="primary-button btn btn-primary float-right" [disabled]="isCaptchaEnabled ? this.form.invalid : false">
+          <ng-container *ngIf="!saving">
+            <ng-container *ngIf="submitText">{{submitText}}</ng-container>
+            <ng-container *ngIf="!submitText">Submit</ng-container>
+          </ng-container>
+          <ng-container *ngIf="saving">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Saving...
+          </ng-container>
+        </button>
+      </ng-container>
+    </div>
+  </fieldset>
+</form>

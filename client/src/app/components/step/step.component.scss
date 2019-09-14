@@ -1,0 +1,44 @@
+.step {
+
+  .step-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .step_description {
+    position: absolute;
+    width: 70%;
+    margin-top: 30px;
+  }
+
+  .step_bullet {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -1px;
+
+    &.step_progress-line--finished {
+      background-color: #ffed00;
+    }
+
+    &.step_progress-line--pending {
+      background-color: #f6f6f6
+    }
+  }
+
+  .step_progress-line {
+    width: 50px;
+    height: 10px;
+
+    &.step_progress-line--finished {
+      background-color: #ffed00;
+    }
+
+    &.step_progress-line--pending {
+      background-color: #f6f6f6
+    }
+  }
+}

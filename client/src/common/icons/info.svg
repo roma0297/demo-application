@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="16" height="16" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Fill_1" data-name="Fill 1" d="M8,16a8,8,0,1,1,8-8A8.01,8.01,0,0,1,8,16ZM6.58,10.581a.387.387,0,0,0-.387.387v.774a.387.387,0,0,0,.387.387H9.42a.387.387,0,0,0,.387-.387v-.774a.387.387,0,0,0-.387-.387H9.033V7.355a.387.387,0,0,0-.386-.387H6.58a.387.387,0,0,0-.387.387v.774a.387.387,0,0,0,.387.387h.388v2.065ZM8,3.548A1.355,1.355,0,1,0,9.355,4.9,1.357,1.357,0,0,0,8,3.548Z" fill="#252e33"/>
+    </clipPath>
+  </defs>
+  <g id="Icons_info" data-name="Icons/info" clip-path="url(#clip-path)">
+    <path id="Fill_1-2" data-name="Fill 1" d="M8,16a8,8,0,1,1,8-8A8.01,8.01,0,0,1,8,16ZM6.58,10.581a.387.387,0,0,0-.387.387v.774a.387.387,0,0,0,.387.387H9.42a.387.387,0,0,0,.387-.387v-.774a.387.387,0,0,0-.387-.387H9.033V7.355a.387.387,0,0,0-.386-.387H6.58a.387.387,0,0,0-.387.387v.774a.387.387,0,0,0,.387.387h.388v2.065ZM8,3.548A1.355,1.355,0,1,0,9.355,4.9,1.357,1.357,0,0,0,8,3.548Z" transform="translate(0 0)" fill="#252e33"/>
+    <g transform="translate(0 0)" clip-path="url(#clip-path-2)">
+      <g id="_Color" data-name="🎨 Color">
+        <rect id="_Color_background" data-name="🎨 Color background" width="16" height="16" fill="rgba(0,0,0,0)"/>
+        <rect id="Colour_Greyscale_400" data-name="Colour/Greyscale/400" width="16" height="16" fill="#b1c3cc"/>
+      </g>
+    </g>
+  </g>
+</svg>

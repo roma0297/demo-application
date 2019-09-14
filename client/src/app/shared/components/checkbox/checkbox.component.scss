@@ -1,0 +1,51 @@
+@import '../../../../common/styles/index.scss';
+
+:host {
+  margin-top: $input-margin-top;
+}
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  margin: 10px 0 0 20px;
+}
+.checkbox + label {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 60px;
+  cursor: pointer;
+}
+.checkbox + label:before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 50px;
+  height: 26px;
+  border-radius: 13px;
+  background: #ced4da;
+  transition: .2s;
+}
+.checkbox + label:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 10px;
+  background: #FFF;
+  transition: .2s;
+}
+.checkbox:checked + label:before {
+  background: #00B8A9;
+}
+.checkbox:checked + label:after {
+  left: 26px;
+}
+
+.field .hint {
+  position: relative;
+  top: -3px;
+}

@@ -1,0 +1,88 @@
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.logo {
+    width: 127px;
+    height: 24px;
+    background-image: url('/common/images/logo.svg');
+  }
+
+  &.edit {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/edit.svg');
+  }
+
+  &.document {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/document.svg');
+  }
+
+  &.arrow-up {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/arrow-top.svg');
+  }
+
+  &.arrow-right {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/arrow-right.svg');
+  }
+
+  &.arrow-down {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/arrow-bottom.svg');
+  }
+
+  &.arrow-left {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/arrow-left.svg');
+  }
+
+  &.plus {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/plus.svg');
+  }
+
+  &.minus {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/minus.svg');
+  }
+
+  &.magnifier {
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/magnifier.svg');
+  }
+
+  &.info {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-image: url('/common/icons/info.svg');
+
+    &.green {
+      background-image: url('/common/icons/info-green.svg');
+    }
+  }
+
+  &.calendar { //Icon8 Need to check licence
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/calendar.svg');
+  }
+
+  &.close { //Icon8 Need to check licence
+    width: 16px;
+    height: 16px;
+    background-image: url('/common/icons/close.svg');
+  }
+}

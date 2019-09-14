@@ -1,0 +1,15 @@
+<div class="field" [formGroup]="form" [ngClass]="{'error': form.controls[name].errors}" *ngIf="!hidden">
+  <label [for]="name">
+    <ng-container *ngIf="label"><span *ngIf="required">*</span>{{label}}</ng-container>
+  </label>
+
+  <input type="text" class="form-control" [id]="name" [formControlName]="name" [placeholder]="placeholder"
+    [value]="value" [attr.required]="required ? 'required' : false" [attr.disabled]="disabled || null"
+    [ngClass]="{'form-control-has-hint': hint}" />
+
+  <app-hint *ngIf="hint" [hint]="hint"></app-hint>
+
+  <div class="note">
+    <error-message [control]="form.controls[name]" [message]="errorMessage"></error-message>
+  </div>
+</div>

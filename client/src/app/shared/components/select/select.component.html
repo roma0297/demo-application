@@ -1,0 +1,22 @@
+<div class="field" [formGroup]="form" [ngClass]="{'error': form.controls[name] && form.controls[name].errors}"
+  *ngIf="!hidden">
+  <label [for]="name">
+    <ng-container *ngIf="label"><span *ngIf="required">*</span>{{label}}</ng-container>
+  </label>
+
+  <select class="form-control" [id]="name" [formControlName]="name" [attr.required]="required ? 'required' : false"
+    [attr.disabled]="disabled || null" #s (input)="setValue(s.value)" [ngClass]="{'form-control-has-hint': hint}">
+    <option disabled selected [value]="''" *ngIf="haveEmptyOption">
+      {{placeholder || 'Choose option'}}
+    </option>
+    <option *ngFor="let item of options" [value]="item.value" [selected]="item.selected">
+      {{ item.name }}
+    </option>
+  </select>
+
+  <app-hint *ngIf="hint" [hint]="hint"></app-hint>
+
+  <div class="note">
+    <error-message [control]="form.controls[name]" [message]="errorMessage"></error-message>
+  </div>
+</div>

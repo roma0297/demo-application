@@ -1,0 +1,23 @@
+@import '../../../common/styles/index.scss';
+
+.stepper {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .stepper_bullets {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-left: -2rem;
+
+    @include not-mobile {
+      margin-left: -3rem;
+    }
+
+    @include not-desktop {
+      margin-left: -4rem;
+    }
+  }
+}

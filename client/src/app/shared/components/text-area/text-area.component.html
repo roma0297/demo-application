@@ -1,0 +1,19 @@
+<div class="field" [formGroup]="form" [ngClass]="{'error': form.controls[name].errors}">
+  <label [for]="name">
+    <ng-container *ngIf="label"><span *ngIf="required">*</span>{{label}}</ng-container>
+  </label>
+
+  <textarea class="form-control" [ngStyle]="{
+      'min-height': minHeight || '176px',
+      'max-height': maxHeight || 'initial'
+    }" [id]="name" [formControlName]="name" [attr.required]="required ? 'required' : false" [placeholder]="placeholder"
+    [ngClass]="{'form-control-has-hint': hint}">
+    {{value}}
+  </textarea>
+
+  <app-hint *ngIf="hint" [hint]="hint" class="hint-align-top"></app-hint>
+
+  <div class="note">
+    <error-message [control]="form.controls[name]" [message]="errorMessage"></error-message>
+  </div>
+</div>

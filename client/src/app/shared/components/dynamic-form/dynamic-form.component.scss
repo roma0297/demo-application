@@ -1,0 +1,56 @@
+@import '../../../../common/styles/index.scss';
+
+:host {
+  .confirm-block {
+    float: right;
+    margin-top: 40px;
+  }
+
+  /deep/ label {
+    display: block;
+  }
+}
+
+.dynamic-form {
+  &__column {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  &__bold-text {
+    height: 87px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__expansion {
+    margin: 10px 0;
+  }
+}
+
+[class*="col-"] {
+  flex-basis: 100%;
+}
+
+@include tablet {
+  .col-20 {
+    flex-basis: 20%;
+  }
+
+  .col-25 {
+    flex-basis: 25%;
+  }
+
+  .col-33 {
+    flex-basis: calc(100% / 3);
+  }
+
+  .col-50 {
+    flex-basis: 50%;
+  }
+
+  .col-100 {
+    flex-basis: 100%;
+  }
+}

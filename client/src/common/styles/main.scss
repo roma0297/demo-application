@@ -1,0 +1,161 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  padding: 0;
+  margin: 0;
+  color: #000000;
+  font-size: 24px;
+  line-height: 1.17;
+  font-family: 'Futura', Arial, sans-serif;
+  font-weight: 400;
+}
+
+fieldset {
+  border: unset;
+}
+
+.color-yellow {
+  
+}
+
+// .login_form {
+
+// }
+
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Futura', Arial, sans-serif;
+  font-weight: 500;
+  line-height: 34px;
+  box-sizing: border-box;
+  border: 0 none;
+  color: #303030;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  max-width: 100%;
+  padding: 23px 55px;
+  background: #fdee31;
+  cursor: pointer;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+hr {
+  background-color: $color-gray-line;
+  margin: 22px 0;
+}
+
+.note {
+  font-size: 12px;
+  color: $color-light-gray;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+.error .note {
+  color: $color-error;
+}
+
+.error-group {
+  color: $color-error;
+}
+
+.link {
+  color: $color-green-text;
+  font-size: 14px;
+}
+
+button.link {
+  display: inline;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.primary-button {
+  background-color: $color-next-btn;
+  border: none;
+  border-radius: 0;
+  font-size: 14px;
+  padding: 0 24px;
+  height: 40px;
+  line-height: 16px;
+  min-width: 100px;
+  color: #FFFFFF;
+}
+
+.secondary-button {
+  border: none;
+  border-radius: 0;
+  font-size: 14px;
+  padding: 0 24px;
+  height: 40px;
+  line-height: 16px;
+  min-width: 100px;
+}
+
+.field .form-control:focus {
+  border-color: $color-active;
+  box-shadow: 0 0 0 1px $color-active;
+  outline: 0 none;
+}
+.field .form-control.ng-invalid.ng-touched {
+  border-color: $color-error;
+  box-shadow: 0 0 0 1px $color-error;
+  outline: 0 none;
+}
+
+.field .input-group-has-hint {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.field .form-control-has-hint {
+  display: inline-block;
+  width: calc(100% - 30px);
+  margin: 0;
+  vertical-align: middle;
+}
+
+.hint-align-top {
+  vertical-align: top;
+}
+
+.modal-dialog.modal-lg {
+  max-width: 920px !important;
+}
+
+ngb-modal-backdrop {
+  &.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.1);
+    &.show {
+      opacity: 1;
+    }
+  }
+}
+
+ngb-modal-window {
+  background-color: inherit;
+  overflow-y: scroll!important;
+
+  .modal-content {
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    border: none;
+    border-radius: 0!important;
+  }
+
+  pop-up {
+    .add-country-modal {
+      padding: calc(24px + 1rem)!important;
+    }
+  }
+}

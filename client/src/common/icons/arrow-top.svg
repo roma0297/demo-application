@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13.014" height="8.021" viewBox="0 0 13.014 8.021">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="13.014" height="8.02" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Shape_622_copy_15" d="M1.926,12.8A.734.734,0,0,1,.9,12.8L.212,12.13a.708.708,0,0,1,0-1.011L4.873,6.508.212,1.9a.707.707,0,0,1,0-1.01L.9.21a.734.734,0,0,1,1.027,0L7.807,6a.706.706,0,0,1,0,1.011Z" transform="translate(14.517 4.497) rotate(90)" fill="#252e33"/>
+    </clipPath>
+  </defs>
+  <g id="Icons_arrow_Copy" data-name="Icons/arrow Copy" transform="translate(13.014 8.021) rotate(180)" clip-path="url(#clip-path)">
+    <path id="Shape_622_copy_15-2" data-name="Shape_622_copy_15" d="M1.926,12.8A.734.734,0,0,1,.9,12.8L.212,12.13a.708.708,0,0,1,0-1.011L4.873,6.508.212,1.9a.707.707,0,0,1,0-1.01L.9.21a.734.734,0,0,1,1.027,0L7.807,6a.706.706,0,0,1,0,1.011Z" transform="translate(13.014) rotate(90)" fill="#252e33"/>
+    <g transform="translate(-1.503 -4.497)" clip-path="url(#clip-path-2)">
+      <g id="_Color" data-name="🎨 Color">
+        <rect id="_Color_background" data-name="🎨 Color background" width="16" height="16" fill="rgba(0,0,0,0)"/>
+        <rect id="Colour_Fill_Greyscale_800" data-name="Colour/Fill/Greyscale/800" width="16" height="16" fill="#576c77"/>
+      </g>
+    </g>
+  </g>
+</svg>
