@@ -18,7 +18,7 @@ export class ProgressComponent implements OnInit {
       finished: true,
       active: false,
       tooltipText: 'Here is the test text... you can place here anything you want',
-      description: 'Уважаемый {No name}, благодарим вас за выбор нашего сервиса по оформлению расчетного счета. Ваша заявка принята в обработку и в ближашее время с вами свяжется наш специлист для сбора документов.'
+      description: 'Уважаемый Роман Зильбер, благодарим вас за выбор нашего сервиса по оформлению расчетного счета. Ваша заявка принята в обработку и в ближашее время с вами свяжется наш специлист для сбора документов.'
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export class ProgressComponent implements OnInit {
       finished: true,
       active: true,
       tooltipText: 'Here is the test text... you can place here anything you want',
-      description: 'Уважаемый {No Name}, документы по вашему обращению собраны и в ближайшее время будут переданы в обработку. Спасибо за обращение в наш банк.'
+      description: 'Уважаемый Роман Зильбер, документы по вашему обращению собраны и в ближайшее время будут переданы в обработку. Спасибо за обращение в наш банк.'
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ export class ProgressComponent implements OnInit {
       finished: false,
       active: false,
       tooltipText: 'Here is the test text... you can place here anything you want',
-      description: 'Уважаемый {No name}, в данный момент мы обрабатываем ваши документы. Если у вас есть какие-то дополнительные вопросы, вы можете задать их нам по телефону горячей линии. Спасибо.'
+      description: 'Уважаемый Роман Зильбер, в данный момент мы обрабатываем ваши документы. Если у вас есть какие-то дополнительные вопросы, вы можете задать их нам по телефону горячей линии. Спасибо.'
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ export class ProgressComponent implements OnInit {
       finished: false,
       active: false,
       tooltipText: 'Here is the test text... you can place here anything you want',
-      description: 'Уважаемый {No name}, в данный момент мы работаем над открытием расчетного счета для вашего бизнеса. Спасибо.'
+      description: 'Уважаемый Роман Зильбер, в данный момент мы работаем над открытием расчетного счета для вашего бизнеса. Спасибо.'
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ export class ProgressComponent implements OnInit {
       finished: false,
       active: false,
       tooltipText: 'Here is the test text... you can place here anything you want',
-      description: 'Уважаемый {No name}, расчетный счет успешно открыт, спасибо за обращение в наш банк. Для получения деталей вы можете пройти в личный кабинет или обратиться по телефону горячей линии. Спасибо.'
+      description: 'Уважаемый Роман Зильбер, расчетный счет успешно открыт, спасибо за обращение в наш банк. Для получения деталей вы можете пройти в личный кабинет или обратиться по телефону горячей линии. Спасибо.'
     }
   ];
 
