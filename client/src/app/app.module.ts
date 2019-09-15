@@ -1,4 +1,3 @@
-import { ErrorMessageComponent } from './shared/components/error/error.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -9,9 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PortalModule } from '@angular/cdk/portal';
 import { ChartsModule } from 'ng2-charts';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ErrorMessageComponent } from './shared/components/error/error.component';
 import { DynamicFormComponent } from './shared/components/dynamic-form/dynamic-form.component';
 import { InputComponent } from './shared/components/input/input.component';
 import { SelectComponent } from './shared/components/select/select.component';
@@ -30,6 +32,9 @@ import { ButtonComponent } from './shared/components/button/button.component';
 import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { MarketListComponent } from './components/market-list/market-list.component';
 import { MarketItemComponent } from './components/market-item/market-item.component';
+import { BASE_URL } from './configs/tokens';
+import { CreditStockComponent } from './components/credit-stock/credit-stock.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +57,8 @@ import { MarketItemComponent } from './components/market-item/market-item.compon
     AnalyticsComponent,
     MarketListComponent,
     MarketItemComponent,
+    CreditStockComponent,
+    TableComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -65,20 +72,22 @@ import { MarketItemComponent } from './components/market-item/market-item.compon
     MatTabsModule,
     PortalModule,
     ChartsModule,
-    MatCardModule
+    MatCardModule,
     // MatSortModule,
-    // MatTableModule,
-    // MatPaginatorModule,
+    MatTableModule,
+    MatPaginatorModule,
     // MatProgressSpinnerModule,
     // MatDialogModule,
     // MatExpansionModule,
   ],
-  providers: [],
+  providers: [
+    { provide: BASE_URL, useValue: 'http://localhost:8080' }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     MarketListComponent,
     AnalyticsComponent,
-
+    CreditStockComponent
   ]
 })
 export class AppModule { }

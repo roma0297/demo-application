@@ -6,18 +6,22 @@
   flex-direction: column;
   justify-content: center;
 
-  .stepper_bullets {
+  &_header {
+    text-align: center;
+  }
+
+  &_bullets {
     display: flex;
     justify-content: center;
     position: relative;
     margin-left: -2rem;
 
-    @include not-mobile {
-      margin-left: -3rem;
-    }
+    // @include not-mobile {
+    //   margin-left: -3rem;
+    // }
 
-    @include not-desktop {
-      margin-left: -4rem;
-    }
+    // @include not-desktop {
+    //   margin-left: -3rem;
+    // }
   }
 }

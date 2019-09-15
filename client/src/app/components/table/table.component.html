@@ -1,0 +1,25 @@
+<div class="field">
+  <div class="field__header">
+  <h3 class="field__header-header">{{label}}</h3>
+
+  <div class="scrollable">
+    <table mat-table [dataSource]="data" matSort matSortActive="created" matSortDisableClear matSortDirection="desc" class="dynamic-table">
+
+      <ng-container *ngFor="let column of columnIds; let i = index">
+        <ng-container [matColumnDef]="column">
+          <th mat-header-cell *matHeaderCellDef class="dynamic-table__header-cell" [ngStyle]="{'width': (columnSizes[i] || 100) + 'px'}"> {{ columnNames[i] }} </th>
+          <td mat-cell *matCellDef="let row" class="dynamic-table__data-cell" [ngStyle]="{'width': (columnSizes[i] || 100) + 'px'}">
+            <ng-container *ngIf="column !== 'link'">{{ getCellValue(cellModifier(row, column)) }}</ng-container>
+            <i class="icon document" *ngIf="column === '_read'" (click)="openEditPopup(row.id, row, $event)"></i>
+          </td>
+        </ng-container>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnIds;" class="dynamic-table__header"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnIds;" class="dynamic-table__body-row"></tr>
+    </table>
+  </div>
+
+  <mat-paginator [length]="resultsLength" [pageSize]="10" showFirstLastButtons></mat-paginator>
+</div>
+  

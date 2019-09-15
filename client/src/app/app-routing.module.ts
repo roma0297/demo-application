@@ -13,7 +13,8 @@ const routes: Routes = [
   },
   { 
     path: '',
-    redirectTo: '/main',
+    redirectTo: '/account',
+    // redirectTo: '/main',
     pathMatch: 'full'
   },
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  }
+  },
   // { path: 'hero/:id',      component: HeroDetailComponent },
   // {
   //   path: 'heroes',
@@ -38,7 +39,7 @@ const routes: Routes = [
   //   redirectTo: '/heroes',
   //   pathMatch: 'full'
   // },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: HomePageComponent }
 ];
 
 @NgModule({

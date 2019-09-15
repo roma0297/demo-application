@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Subject } from 'node_modules/rxjs';
+import { Subject } from 'rxjs';
 
 import { TTab } from './../../common/types/market-place.d';
 import { AnalyticsComponent } from '../components/analytics/analytics.component';
 import { MarketListComponent } from '../components/market-list/market-list.component';
+import { CreditStockComponent } from '../components/credit-stock/credit-stock.component';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class AccountService {
     {
       id: 6,
       label: 'Кредитная биржа',
-      // content: new ComponentPortal(NavigationComponent)
+      content: new ComponentPortal(CreditStockComponent)
     },
     {
       id: 7,

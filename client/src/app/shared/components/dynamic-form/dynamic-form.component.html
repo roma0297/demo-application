@@ -60,6 +60,21 @@
                   </app-checkbox>
                 </ng-container>
 
+                <ng-container *ngIf="field.type === 'table-api'">
+                  <app-table
+                    [label]="field.label"
+                    [buttons]="field.buttons || []"
+                    [data]="field.data || []"
+                    [api]="field.api"
+                    [editPopupContentComponent]="field.editPopupContentComponent"
+                    [columnIds]="field.columnIds"
+                    [columnNames]="field.columnNames"
+                    [columnSizes]="field.columnSizes"
+                    [columnModifiers]="field.columnModifiers"
+                  >
+                </app-table>
+                </ng-container>
+
                 <ng-container *ngIf="field.type === 'button'">
                   <app-button
                     [form]="form"
