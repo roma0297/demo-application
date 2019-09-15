@@ -23,6 +23,16 @@ class MarketItemModel(
     val users: Set<UserProfileModel> = emptySet(),
     @OneToOne
     val picture: PictureMediaModel? = null,
+    @Column(name = "itemName")
+    val itemName: String = "",
+    @Column(name = "subtitle")
+    val subtitle: String = "",
+    @Column(name = "url")
+    val url: String = "",
+    @Column(name = "is_enabled")
+    val isEnabled: Boolean = false,
+    @Column(name = "is_shown")
+    val isShown: Boolean = true,
     @Lob
     @Column(name = "pageContent", columnDefinition = "BLOB")
     val pageContent: String = ""

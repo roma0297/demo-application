@@ -14,11 +14,16 @@ class MarketItemConverter(
     override fun convert(input: MarketItemModel): OperationValueResult<MarketItemDto> {
         val id = input.getId() ?: return OperationValueResult.failure("MarketItemModel doesn't have primary key")
         return OperationValueResult.success(MarketItemDto(
-                id = id,
-                name = localizationService.localize(input.name),
-                tabLabel = input.tabLabel,
-                description = localizationService.localize(input.description),
-                pageContent = input.pageContent
+            id = id,
+            name = localizationService.localize(input.name),
+            tabLabel = input.tabLabel,
+            description = localizationService.localize(input.description),
+            pageContent = input.pageContent,
+            isEnabled = false,
+            isShown = true,
+            itemName = input.itemName,
+            url = input.url,
+            subtitle = input.subtitle
         ))
     }
 }

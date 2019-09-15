@@ -5,5 +5,10 @@ data class MarketItemDto(
     val name: String,
     val tabLabel: String,
     val description: String,
-    val pageContent: String
+    val pageContent: String,
+    val itemName: String = "",
+    val subtitle: String = "",
+    val url: String = "",
+    val isEnabled: Boolean = true,
+    val isShown: Boolean = true
 )
