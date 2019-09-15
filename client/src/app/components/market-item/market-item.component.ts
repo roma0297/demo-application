@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { MarketItemService } from '../../services/market-item.service';
 import { IMarketItem } from './../../../common/types/market-place.d';
-
+import { AccountService } from './../../services/account.service';
 
 @Component({
   selector: 'app-market-item',
@@ -14,14 +13,14 @@ export class MarketItemComponent implements OnInit {
   
   @Input() marketItem: IMarketItem;
 
-  constructor(private marketItemService: MarketItemService) { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit() {
     this.animationFlag = this.marketItem.isShown;
   }
 
   addMarketItem(marketItem: IMarketItem) {
-    this.marketItemService.manageMarketItems(marketItem, true);
+    this.accountService.manageMarketItems(marketItem, true);
   }
 
 }

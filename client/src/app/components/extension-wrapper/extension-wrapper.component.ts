@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { CONTAINER_DATA } from '../../configs/tokens';
+// import { CONTAINER_DATA } from '../../services/account.service';
+import { Component, OnInit, Input, Injector } from '@angular/core';
 import { TObject } from 'src/common/types/market-place';
 
 @Component({
@@ -8,11 +10,14 @@ import { TObject } from 'src/common/types/market-place';
 })
 export class ExtensionWrapperComponent implements OnInit {
 
-  @Input() config: TObject;
+  config: TObject = {
+    fields: []
+  };
 
-  constructor() { }
+  constructor(private injector: Injector) { }
 
   ngOnInit() {
+    this.config = this.injector.get(CONTAINER_DATA);
   }
 
 }

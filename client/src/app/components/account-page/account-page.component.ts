@@ -1,3 +1,4 @@
+import { MarketListComponent } from './../market-list/market-list.component';
 import { Subscription } from 'node_modules/rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
@@ -19,6 +20,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const subscription = this.accountService.tabsSubject.subscribe((tabs: TTab[]) => this.tabs = tabs);
     this.subscriptions.push(subscription);
+    this.accountService.setTablistConfig(MarketListComponent);
   }
 
   ngOnDestroy() {

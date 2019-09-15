@@ -87,7 +87,9 @@ import { ExtensionWrapperComponent } from './components/extension-wrapper/extens
   entryComponents: [
     MarketListComponent,
     AnalyticsComponent,
-    CreditStockComponent
+    CreditStockComponent,
+    AccountPageComponent,
+    ExtensionWrapperComponent
   ]
 })
 export class AppModule { }

@@ -15,6 +15,7 @@ export type TObject = {
 export type TTab = {
   id: number;
   label: string,
+  tabName?: string;
   content?: ComponentPortal<any>
 }
 
@@ -22,6 +23,7 @@ export interface IMarketItem {
   id: number;
   name: string;
   subtitle: string;
+  itemName?: string;
   url: string;
   description: string;
   enabled: boolean;

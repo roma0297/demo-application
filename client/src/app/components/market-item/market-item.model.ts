@@ -2,6 +2,7 @@ import { IMarketItem } from '../../../common/types/market-place';
 
 export class MarketItem implements IMarketItem {
   id: number;
+  itemName: string;
   name: string;
   subtitle: string;
   url: string;
@@ -11,6 +12,7 @@ export class MarketItem implements IMarketItem {
 
   constructor(buildingOptions: IMarketItem) {
     this.id = buildingOptions.id;
+    this.itemName = buildingOptions.itemName || '';
     this.name = buildingOptions.name;
     this.subtitle = buildingOptions.subtitle;
     this.url = buildingOptions.url;
