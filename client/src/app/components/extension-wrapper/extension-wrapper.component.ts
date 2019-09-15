@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TObject } from 'src/common/types/market-place';
 
 @Component({
   selector: 'app-extension-wrapper',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ExtensionWrapperComponent implements OnInit {
 
-  // @Input()
+  @Input() config: TObject;
 
   constructor() { }
 
