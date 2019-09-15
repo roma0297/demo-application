@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.converters.PrincipalUserConverter
 import ru.raiffeisen.demoapplication.exceptions.ResourceNotFoundException
+import ru.raiffeisen.demoapplication.model.user.MarketItemModel
 import ru.raiffeisen.demoapplication.model.user.UserProfileModel
 import ru.raiffeisen.demoapplication.repositories.UserRepository
+import ru.raiffeisen.demoapplication.security.model.RoleName
 import ru.raiffeisen.demoapplication.security.model.UserPrincipal
 import ru.raiffeisen.demoapplication.utils.ExceptionsUtils
 import java.lang.IllegalStateException
@@ -38,11 +40,13 @@ class CustomUserDetailsService(
     }
 
     fun getCurrentUser(): OperationValueResult<UserProfileModel> {
-        val userIdOrNull = ExceptionsUtils.tryOrNull {
+        /*val userIdOrNull = ExceptionsUtils.tryOrNull {
             SecurityContextHolder.getContext().authentication.principal as UserProfileModel
         }
         userIdOrNull ?: return OperationValueResult.failure("There is no user in the current session")
-        return OperationValueResult.success(userIdOrNull)
+        return OperationValueResult.success(userIdOrNull)*/
+
+        return OperationValueResult.success(userRepository.findById(0L).orElse(null))
     }
 
     fun getCurrentUserId(): OperationValueResult<Long> {
