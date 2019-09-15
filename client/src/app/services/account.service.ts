@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { MarketItem } from './../components/market-item/market-item.model';
-import { Injectable, Injector } from '@angular/core';
+import { Injectable, Injector, Inject } from '@angular/core';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { Subject } from 'rxjs';
 
@@ -7,7 +8,7 @@ import { TTab, IMarketItem } from './../../common/types/market-place.d';
 import { AnalyticsComponent } from '../components/analytics/analytics.component';
 import { CreditStockComponent } from '../components/credit-stock/credit-stock.component';
 import { ExtensionWrapperComponent } from '../components/extension-wrapper/extension-wrapper.component';
-import { CONTAINER_DATA } from '../configs/tokens';
+import { CONTAINER_DATA, BASE_URL } from '../configs/tokens';
 import { getTabConfig } from '../configs/tab-configs';
 
 @Injectable({
@@ -72,7 +73,12 @@ export class AccountService {
   tabsSubject: Subject<TTab[]> = new Subject<TTab[]>();
   private tabsList: TTab[] = [];
 
-  constructor(private injector: Injector) { }
+  constructor(
+    private injector: Injector,
+    @Inject(BASE_URL) private baseUrl: string,
+    private http: HttpClient) {
+      this.getMarketItems();
+    }
 
   get tabs() {
     return this.tabsList;
@@ -90,6 +96,10 @@ export class AccountService {
   set marketItems(marketItems: IMarketItem[]) {
     this.marketItemsList = marketItems;
     this.marketItemsSubject.next(this.marketItemsList);
+  }
+
+  getMarketItems() {
+    return this.http.get(`${this.baseUrl}/api/account/marketplace`).subscribe(res => console.log('this is reees!!', res));
   }
 
   setTablistConfig(component) {

@@ -6,9 +6,282 @@ export function getTabConfig(tabName: string) {
       return targetConfig;
     case 'calls':
       return callsConfig;
+    case 'audit':
+      return auditConfig;
+    case 'support':
+      return supportConfig;
+    case 'staffing':
+      return staffingConfig;
+    default:
+      return {
+        fields: []
+      };
   }
 }
 
+const staffingConfig = {
+  fields: [
+    {
+      type: 'column',
+      fields: [
+        {
+          type: 'header',
+          value: 'Сервис по привлечению клиентов - "Холодные звонки"',
+          class: ['text-center'],
+        },
+        {
+          type: 'text',
+          class: ['color-gray', 'text-center'],
+          value: 'Чтобы активировать услугу нам необходимо, чтобы вы предоставили нам некоторые данные:'
+        },
+        { type: 'divider' }
+      ],
+      columnSize: '1'
+    },
+    {
+      type: 'column',
+      fields: [
+        {
+          type: 'input',
+          label: 'Род деятельности',
+          errorMessage: 'Укажите, пожалуйста, род деятельности',
+          fieldName: 'businessType',
+          placeholder: 'Название деятельности',
+          value: '',
+          required: true
+        },
+        {
+          type: 'input',
+          label: 'Что планируете продавать?',
+          errorMessage: 'Пожалуйста, укажите род продукции',
+          fieldName: 'products',
+          placeholder: 'Род продукции',
+          value: '',
+          required: true
+        },
+        {
+          type: 'input',
+          label: 'В каком регионе вы планируете развиваться?',
+          errorMessage: 'Пожалуйста, укажите регион',
+          fieldName: 'region',
+          placeholder: 'Ленинградская область',
+          value: '',
+          required: true,
+          inputType: 'password'
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_1',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_2',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_3',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'button',
+          text: 'Войти в аккаунт',
+          class: 'login_btn--center',
+          buttonType: 'submit'
+        }
+      ]
+    }
+  ]
+};
+
+const supportConfig = {
+  fields: [
+    {
+      type: 'column',
+      fields: [
+        {
+          type: 'header',
+          value: 'Сервис по привлечению клиентов - "Холодные звонки"',
+          class: ['text-center'],
+        },
+        {
+          type: 'text',
+          class: ['color-gray', 'text-center'],
+          value: 'Чтобы активировать услугу нам необходимо, чтобы вы предоставили нам некоторые данные:'
+        },
+        { type: 'divider' }
+      ],
+      columnSize: '1'
+    },
+    {
+      type: 'column',
+      fields: [
+        {
+          type: 'input',
+          label: 'Род деятельности',
+          errorMessage: 'Укажите, пожалуйста, род деятельности',
+          fieldName: 'businessType',
+          placeholder: 'Название деятельности',
+          value: '',
+          required: true
+        },
+        {
+          type: 'input',
+          label: 'Что планируете продавать?',
+          errorMessage: 'Пожалуйста, укажите род продукции',
+          fieldName: 'products',
+          placeholder: 'Род продукции',
+          value: '',
+          required: true
+        },
+        {
+          type: 'input',
+          label: 'В каком регионе вы планируете развиваться?',
+          errorMessage: 'Пожалуйста, укажите регион',
+          fieldName: 'region',
+          placeholder: 'Ленинградская область',
+          value: '',
+          required: true,
+          inputType: 'password'
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_1',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_2',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_3',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'button',
+          text: 'Войти в аккаунт',
+          class: 'login_btn--center',
+          buttonType: 'submit'
+        }
+      ]
+    }
+  ]
+};
+
+const auditConfig = {
+  fields: [
+    {
+      type: 'column',
+      fields: [
+        {
+          type: 'header',
+          value: 'Сервис по привлечению клиентов - "Холодные звонки"',
+          class: ['text-center'],
+        },
+        {
+          type: 'text',
+          class: ['color-gray', 'text-center'],
+          value: 'Чтобы активировать услугу нам необходимо, чтобы вы предоставили нам некоторые данные:'
+        },
+        { type: 'divider' }
+      ],
+      columnSize: '1'
+    },
+    {
+      type: 'column',
+      fields: [
+        {
+          type: 'input',
+          label: 'Род деятельности',
+          errorMessage: 'Укажите, пожалуйста, род деятельности',
+          fieldName: 'businessType',
+          placeholder: 'Название деятельности',
+          value: '',
+          required: true
+        },
+        {
+          type: 'input',
+          label: 'Что планируете продавать?',
+          errorMessage: 'Пожалуйста, укажите род продукции',
+          fieldName: 'products',
+          placeholder: 'Род продукции',
+          value: '',
+          required: true
+        },
+        {
+          type: 'input',
+          label: 'В каком регионе вы планируете развиваться?',
+          errorMessage: 'Пожалуйста, укажите регион',
+          fieldName: 'region',
+          placeholder: 'Ленинградская область',
+          value: '',
+          required: true,
+          inputType: 'password'
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_1',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_2',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'input',
+          label: 'Custom field',
+          errorMessage: 'Custom field',
+          fieldName: 'custom_3',
+          placeholder: 'Custom field',
+          value: '',
+          required: true,
+        },
+        {
+          type: 'button',
+          text: 'Войти в аккаунт',
+          class: 'login_btn--center',
+          buttonType: 'submit'
+        }
+      ]
+    }
+  ]
+};
 const callsConfig = {
   fields: [
     {
@@ -167,7 +440,7 @@ const targetConfig = {
           type: 'textarea',
           label: 'Если у вас остались еще какие-то комментарии, пожалуйста, укажите из тут:',
           fieldName: 'comments',
-          placeholder: 'Комментари',
+          placeholder: 'Комментарии',
           value: '',
           required: true
         },
