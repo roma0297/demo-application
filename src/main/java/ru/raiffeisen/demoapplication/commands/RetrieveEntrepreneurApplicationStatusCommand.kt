@@ -10,8 +10,8 @@ import ru.raiffeisen.demoapplication.services.EntrepreneurApplicationStatusesSer
 
 @Component
 class RetrieveEntrepreneurApplicationStatusCommand(
-    val entrepreneurApplicationStatusConverter: EntrepreneurApplicationStatusConverter,
-    val entrepreneurApplicationStatusesService: EntrepreneurApplicationStatusesService
+    private val entrepreneurApplicationStatusConverter: EntrepreneurApplicationStatusConverter,
+    private val entrepreneurApplicationStatusesService: EntrepreneurApplicationStatusesService
 ) : NoInputCommand<OperationValueResult<List<EntrepreneurApplicationStatusDto>>>() {
     override fun doProcess(): OperationValueResult<List<EntrepreneurApplicationStatusDto>> {
         return entrepreneurApplicationStatusesService.getEntrepreneurApplicationStatuses().flatMap { statuses ->

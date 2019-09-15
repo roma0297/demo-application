@@ -6,15 +6,14 @@ import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.converters.MarketItemConverter
 import ru.raiffeisen.demoapplication.dtos.response.UserPluginsDto
 import ru.raiffeisen.demoapplication.extensions.mapOperationTransform
-import ru.raiffeisen.demoapplication.security.service.CustomUserDetailsService
+import ru.raiffeisen.demoapplication.services.UserContextService
 import ru.raiffeisen.demoapplication.services.UserProfileService
 
 @Component
 class RetrieveUserPluginsCommand(
     private val userPluginsService: UserProfileService,
     private val marketItemConverter: MarketItemConverter,
-    //private val userContextService: UserContextService
-    private val userContextService: CustomUserDetailsService
+    private val userContextService: UserContextService
 ): NoInputCommand<OperationValueResult<UserPluginsDto>>() {
 
     override fun doProcess(): OperationValueResult<UserPluginsDto> {

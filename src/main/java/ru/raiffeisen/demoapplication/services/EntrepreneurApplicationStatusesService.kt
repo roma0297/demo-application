@@ -10,7 +10,8 @@ class EntrepreneurApplicationStatusesService(
     val entrepreneurApplicationStatusesRepository: EntrepreneurApplicationStatusesRepository
 ) {
     fun getEntrepreneurApplicationStatuses(): OperationValueResult<List<EntrepreneurApplicationStatusModel>> {
-        return OperationValueResult.success(entrepreneurApplicationStatusesRepository.findAll().sortedBy { it.ordinalNumber })
+        return OperationValueResult.success(
+            entrepreneurApplicationStatusesRepository.findAll().sortedBy { it.ordinalNumber }
+        )
     }
-
 }

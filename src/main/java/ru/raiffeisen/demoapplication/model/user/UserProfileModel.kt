@@ -3,7 +3,6 @@ package ru.raiffeisen.demoapplication.model.user
 import ru.raiffeisen.demoapplication.model.AbstractJpaPersistable
 import ru.raiffeisen.demoapplication.model.EntrepreneurApplicationStatusModel
 import ru.raiffeisen.demoapplication.model.media.PictureMediaModel
-import ru.raiffeisen.demoapplication.security.model.RoleModel
 import java.util.Locale
 import javax.persistence.Entity
 import javax.persistence.FetchType
@@ -21,17 +20,6 @@ data class UserProfileModel(
     val lastName: String = "",
     val username: String? = null,
     val email: String? = null,
-
-    @NotBlank
-    val password: String? = null,
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "user_roles",
-        joinColumns = [JoinColumn(name = "user_id")],
-        inverseJoinColumns = [JoinColumn(name = "role_id")]
-    )
-    val roles: Set<RoleModel> = emptySet(),
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
