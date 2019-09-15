@@ -2,6 +2,13 @@
   width: 380px;
   height: 500px;
   margin: 10px;
+  opacity: 1;
+
+  &--enabled {
+    animation: stretch 1.5s ease;
+  }
+
+  
 
   &_img {
     width: 380px !important;

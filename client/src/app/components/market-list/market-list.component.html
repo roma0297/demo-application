@@ -1,8 +1,7 @@
 <section class="market-items">
   <ng-container *ngFor="let item of marketItems">
     <app-market-item
-      [marketItem]="item"
-      [@showHide]="item.isShown ? 'show' : 'hide'">
+      [marketItem]="item">
     </app-market-item>
   </ng-container>
 </section>

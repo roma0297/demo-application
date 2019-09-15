@@ -10,6 +10,7 @@ import { ChartsModule } from 'ng2-charts';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { MarketItemComponent } from './components/market-item/market-item.compon
 import { BASE_URL } from './configs/tokens';
 import { CreditStockComponent } from './components/credit-stock/credit-stock.component';
 import { TableComponent } from './components/table/table.component';
+import { ExtensionWrapperComponent } from './components/extension-wrapper/extension-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { TableComponent } from './components/table/table.component';
     MarketItemComponent,
     CreditStockComponent,
     TableComponent,
+    ExtensionWrapperComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -73,12 +76,9 @@ import { TableComponent } from './components/table/table.component';
     PortalModule,
     ChartsModule,
     MatCardModule,
-    // MatSortModule,
+    OverlayModule,
     MatTableModule,
-    MatPaginatorModule,
-    // MatProgressSpinnerModule,
-    // MatDialogModule,
-    // MatExpansionModule,
+    MatPaginatorModule
   ],
   providers: [
     { provide: BASE_URL, useValue: 'http://localhost:8080' }

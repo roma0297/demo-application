@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import { ComponentPortal } from '@angular/cdk/portal';
+import { MarketItem } from './../components/market-item/market-item.model';
+import { Injectable, InjectionToken, Injector } from '@angular/core';
+import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { Subject } from 'rxjs';
 
 import { TTab } from './../../common/types/market-place.d';
@@ -7,6 +8,7 @@ import { AnalyticsComponent } from '../components/analytics/analytics.component'
 import { MarketListComponent } from '../components/market-list/market-list.component';
 import { CreditStockComponent } from '../components/credit-stock/credit-stock.component';
 
+export const CONTAINER_DATA = new InjectionToken<{}>('CONTAINER_DATA');
 @Injectable({
   providedIn: 'root'
 })
@@ -15,39 +17,39 @@ export class AccountService {
   tabsSubject: Subject<TTab[]> = new Subject<TTab[]>();
   private tabsList: TTab[] = [
     {
-      id: 1,
+      id: 20000000,
       label: 'Аналитика',
       content: new ComponentPortal(AnalyticsComponent)
     },
     {
-      id: 2,
+      id: 20000001,
       label: 'Счета и платежи',
     },
     {
-      id: 3,
+      id: 20000002,
       label: 'Выписки и отчеты',
     },
     {
-      id: 4,
+      id: 20000003,
       label: 'Контрагенты',
     },
     {
-      id: 5,
+      id: 20000004,
       label: 'Шаблоны и автоплтежи',
     },
     {
-      id: 6,
+      id: 20000005,
       label: 'Кредитная биржа',
       content: new ComponentPortal(CreditStockComponent)
     },
     {
-      id: 7,
+      id: 20000006,
       label: 'Расширения',
       content: new ComponentPortal(MarketListComponent)
     }
   ];
 
-  constructor() { }
+  constructor(private injector: Injector) { }
 
   get tabs() {
     return this.tabsList;
@@ -57,13 +59,9 @@ export class AccountService {
     this.tabsList = tabs;
   }
 
-  manageTabList(tab: TTab, enabled: boolean) {
-    if (enabled) {
-      this.tabs = [...this.tabs, tab];
-    } else {
-      const index = this.tabs.findIndex((element: TTab) => element.id === tab.id);
-      this.tabs = [...this.tabs.slice(0, index), ...this.tabs.slice(index + 1)];
-    }
-    this.tabsSubject.next(this.tabs);
-  }
+  createInjector(dataToPass): PortalInjector {
+    const injectorTokens = new WeakMap();
+    injectorTokens.set(CONTAINER_DATA, dataToPass);
+    return new PortalInjector(this.injector, injectorTokens);
+}
 }

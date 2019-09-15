@@ -1,0 +1,12 @@
+.extension-wrapper {
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  &_container {
+    width: 80%;
+    min-height: 80vh;
+  }
+}

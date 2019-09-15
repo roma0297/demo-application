@@ -1,19 +1,23 @@
-<mat-card class="market-item">
-  <mat-card-header>
-    <div
-      class="market-item_accept-icon"
-      mat-card-avatar
-      [matTooltip]="marketItem.enabled ? 'Нажмите, чтобы отписаться от услуги' : 'Нажмите, чтобы добавить услугу'"
-      [ngClass]="{'market-item_accept-icon--enabled': marketItem.enabled, 'market-item_accept-icon--disabled': !marketItem.enabled}"
-      (click)="addMarketItem(marketItem)">
-    </div>
-    <mat-card-title>{{ marketItem.name }}</mat-card-title>
-    <mat-card-subtitle>{{ marketItem.subtitle }}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="market-item_img" [src]="marketItem.url" alt="item photo">
-  <mat-card-content>
-    <p>
-      {{ marketItem.description }}
-    </p>
-  </mat-card-content>
+<!-- <div class="merket-item_wrapper" [@showHide]="animationFlag? 'show' : 'hide'"> -->
+<mat-card
+  class="market-item"
+  [ngClass]="{'market-item--enabled': marketItem.enabled}"
+  (click)="addMarketItem(marketItem)">
+<mat-card-header>
+  <div
+    class="market-item_accept-icon"
+    mat-card-avatar
+    [matTooltip]="marketItem.enabled ? 'Нажмите, чтобы отписаться от услуги' : 'Нажмите, чтобы добавить услугу'"
+    [ngClass]="{'market-item_accept-icon--enabled': marketItem.enabled, 'market-item_accept-icon--disabled': !marketItem.enabled}">
+  </div>
+  <mat-card-title>{{ marketItem.name }}</mat-card-title>
+  <mat-card-subtitle>{{ marketItem.subtitle }}</mat-card-subtitle>
+</mat-card-header>
+<img mat-card-image class="market-item_img" [src]="marketItem.url" alt="item photo">
+<mat-card-content>
+  <p>
+    {{ marketItem.description }}
+  </p>
+</mat-card-content>
 </mat-card>
+<!-- </div> -->

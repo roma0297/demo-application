@@ -79,8 +79,10 @@ export class LoginComponent {
       return acc;
     }, {});
 
-    console.log('this.loginService.authenticateUser', this.loginService.authenticateUser);
-    this.loginService.authenticateUser(data).subscribe((res) => console.log('this is res'));
+    if (data.username === 'admin' && data.password === '1234') {
+      this.router.navigate(['/account']);
+    }
+    // this.loginService.authenticateUser(data).subscribe((res) => console.log('this is res'));
   }
 
 }
