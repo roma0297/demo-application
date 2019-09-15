@@ -13,5 +13,4 @@ class RetrieveMarketItemCommand(val marketItemsService: MarketItemsService,
     override fun process(input: Long): OperationValueResult<MarketItemDto> {
         return marketItemsService.getMarketItem(input).flatMap { marketItemConverter.convert(it) }
     }
-
 }

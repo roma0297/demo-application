@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import ru.raiffeisen.demoapplication.commands.AddPluginToUserProfileCommand
 import ru.raiffeisen.demoapplication.commands.RemovePluginToUserProfileCommand
@@ -12,6 +13,7 @@ import ru.raiffeisen.demoapplication.dtos.response.ControllerError
 import ru.raiffeisen.demoapplication.commands.RetrieveUserProfileCommand
 
 @RestController
+@RequestMapping("/api")
 class UserProfileController(
     private val userProfileCommand: RetrieveUserProfileCommand,
     private val userPluginsCommand: RetrieveUserPluginsCommand,

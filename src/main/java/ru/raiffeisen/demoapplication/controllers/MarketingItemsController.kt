@@ -12,7 +12,7 @@ import ru.raiffeisen.demoapplication.commands.RetrieveMarketItemsCommand
 import ru.raiffeisen.demoapplication.dtos.response.ControllerError
 
 @RestController
-@RequestMapping("/account/marketplace")
+@RequestMapping("/api/account/marketplace")
 class MarketingItemsController(val retrieveMarketItemsCommand: RetrieveMarketItemsCommand,
                                val retrieveMarketItemCommand: RetrieveMarketItemCommand) {
 
