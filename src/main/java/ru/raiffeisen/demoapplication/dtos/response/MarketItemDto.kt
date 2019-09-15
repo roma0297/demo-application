@@ -1,4 +1,4 @@
-package ru.raiffeisen.demoapplication.dtos
+package ru.raiffeisen.demoapplication.dtos.response
 
 data class MarketItemDto(
     val id: Long,

@@ -4,7 +4,7 @@ import org.springframework.context.i18n.LocaleContextHolder
 import org.springframework.stereotype.Component
 import org.springframework.web.servlet.i18n.SessionLocaleResolver
 import ru.raiffeisen.demoapplication.repositories.UserProfileRepository
-import ru.raiffeisen.demoapplication.services.UserContextService
+import ru.raiffeisen.demoapplication.security.service.CustomUserDetailsService
 import java.util.Locale
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse
 @Component
 class ApplicationLocaleResolver(
     private val userRepository: UserProfileRepository,
-    private val userContextService: UserContextService
+    //private val userContextService: UserContextService
+    private val userContextService: CustomUserDetailsService
 ) : SessionLocaleResolver() {
 
     override fun resolveLocale(request: HttpServletRequest): Locale {

@@ -1,5 +1,8 @@
-package ru.raiffeisen.demoapplication.model
+package ru.raiffeisen.demoapplication.model.user
 
+import ru.raiffeisen.demoapplication.model.AbstractJpaPersistable
+import ru.raiffeisen.demoapplication.model.localization.LocalizedStringModel
+import ru.raiffeisen.demoapplication.model.media.PictureMediaModel
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Lob

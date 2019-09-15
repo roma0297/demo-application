@@ -1,4 +1,4 @@
-package ru.raiffeisen.demoapplication.model
+package ru.raiffeisen.demoapplication.model.media
 
 import javax.persistence.DiscriminatorValue
 import javax.persistence.Entity

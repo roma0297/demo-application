@@ -2,7 +2,7 @@ package ru.raiffeisen.demoapplication.services
 
 import org.springframework.context.i18n.LocaleContextHolder
 import org.springframework.stereotype.Service
-import ru.raiffeisen.demoapplication.model.LocalizedStringModel
+import ru.raiffeisen.demoapplication.model.localization.LocalizedStringModel
 import java.util.Locale
 
 @Service

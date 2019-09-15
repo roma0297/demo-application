@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
-import ru.raiffeisen.demoapplication.model.MarketItemModel
+import ru.raiffeisen.demoapplication.model.user.MarketItemModel
 import ru.raiffeisen.demoapplication.repositories.MarketItemsRepository
 
 @Component

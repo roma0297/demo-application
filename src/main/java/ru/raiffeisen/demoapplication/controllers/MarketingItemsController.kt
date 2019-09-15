@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import ru.raiffeisen.demoapplication.commands.RetrieveMarketItemCommand
 import ru.raiffeisen.demoapplication.commands.RetrieveMarketItemsCommand
-import ru.raiffeisen.demoapplication.dtos.ControllerError
+import ru.raiffeisen.demoapplication.dtos.response.ControllerError
 
 @RestController
 @RequestMapping("/account/marketplace")

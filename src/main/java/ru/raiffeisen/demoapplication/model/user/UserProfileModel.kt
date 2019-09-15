@@ -1,7 +1,9 @@
-package ru.raiffeisen.demoapplication.model
+package ru.raiffeisen.demoapplication.model.user
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
+import ru.raiffeisen.demoapplication.model.AbstractJpaPersistable
+import ru.raiffeisen.demoapplication.model.media.PictureMediaModel
 import java.util.Locale
 import javax.persistence.Entity
 import javax.persistence.FetchType
@@ -15,8 +17,6 @@ import javax.persistence.Table
 @Entity
 @Table(name = "user_profile")
 data class UserProfileModel(
-    val email: String = "",
-    val userPassword: String = "",
     val firstName: String = "",
     val lastName: String = "",
     @ManyToMany(fetch = FetchType.EAGER)
@@ -28,22 +28,5 @@ data class UserProfileModel(
     val plugins: Set<MarketItemModel> = emptySet(),
     @OneToOne
     val picture: PictureMediaModel? = null,
-    @OneToMany(fetch = FetchType.EAGER)
-    val userAuthorities: Set<AuthorityModel> = emptySet(),
     val locale: Locale = Locale.ENGLISH
-) : AbstractJpaPersistable<Long>(), UserDetails {
-
-    override fun getAuthorities(): Set<GrantedAuthority> = userAuthorities
-
-    override fun isEnabled(): Boolean = true
-
-    override fun getUsername(): String = email
-
-    override fun isCredentialsNonExpired(): Boolean = true
-
-    override fun getPassword(): String = userPassword
-
-    override fun isAccountNonExpired(): Boolean = true
-
-    override fun isAccountNonLocked(): Boolean = true
-}
+) : AbstractJpaPersistable<Long>()

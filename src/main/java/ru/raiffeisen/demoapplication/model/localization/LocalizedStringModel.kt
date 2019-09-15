@@ -1,5 +1,6 @@
-package ru.raiffeisen.demoapplication.model
+package ru.raiffeisen.demoapplication.model.localization
 
+import ru.raiffeisen.demoapplication.model.AbstractJpaPersistable
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component
 import ru.raiffeisen.demoapplication.common.command.Command
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.converters.MarketItemConverter
-import ru.raiffeisen.demoapplication.dtos.MarketItemDto
+import ru.raiffeisen.demoapplication.dtos.response.MarketItemDto
 import ru.raiffeisen.demoapplication.services.MarketItemsService
 
 @Component

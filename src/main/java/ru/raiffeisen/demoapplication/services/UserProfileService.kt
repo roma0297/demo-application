@@ -5,8 +5,8 @@ import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import ru.raiffeisen.demoapplication.common.operation.OperationResult
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
-import ru.raiffeisen.demoapplication.model.MarketItemModel
-import ru.raiffeisen.demoapplication.model.UserProfileModel
+import ru.raiffeisen.demoapplication.model.user.MarketItemModel
+import ru.raiffeisen.demoapplication.model.user.UserProfileModel
 import ru.raiffeisen.demoapplication.repositories.MarketItemsRepository
 import ru.raiffeisen.demoapplication.repositories.UserProfileRepository
 

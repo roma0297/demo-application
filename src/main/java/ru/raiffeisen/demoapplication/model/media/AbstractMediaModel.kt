@@ -1,5 +1,6 @@
-package ru.raiffeisen.demoapplication.model
+package ru.raiffeisen.demoapplication.model.media
 
+import ru.raiffeisen.demoapplication.model.AbstractJpaPersistable
 import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.DiscriminatorColumn

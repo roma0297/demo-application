@@ -2,8 +2,8 @@ package ru.raiffeisen.demoapplication.converters
 
 import org.springframework.stereotype.Component
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
-import ru.raiffeisen.demoapplication.dtos.MarketItemDto
-import ru.raiffeisen.demoapplication.model.MarketItemModel
+import ru.raiffeisen.demoapplication.dtos.response.MarketItemDto
+import ru.raiffeisen.demoapplication.model.user.MarketItemModel
 import ru.raiffeisen.demoapplication.services.LocalizationService
 
 @Component

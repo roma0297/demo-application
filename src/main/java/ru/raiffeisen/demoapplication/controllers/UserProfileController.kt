@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 import ru.raiffeisen.demoapplication.commands.AddPluginToUserProfileCommand
 import ru.raiffeisen.demoapplication.commands.RemovePluginToUserProfileCommand
 import ru.raiffeisen.demoapplication.commands.RetrieveUserPluginsCommand
-import ru.raiffeisen.demoapplication.dtos.ControllerError
+import ru.raiffeisen.demoapplication.dtos.response.ControllerError
 import ru.raiffeisen.demoapplication.commands.RetrieveUserProfileCommand
 
 @RestController
