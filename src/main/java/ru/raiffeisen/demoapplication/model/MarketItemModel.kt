@@ -2,6 +2,7 @@ package ru.raiffeisen.demoapplication.model
 
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.Lob
 import javax.persistence.ManyToMany
 import javax.persistence.OneToOne
 import javax.persistence.Table
@@ -18,5 +19,8 @@ class MarketItemModel(
         @ManyToMany(mappedBy = "plugins")
         val users: Set<UserProfileModel> = emptySet(),
         @OneToOne
-        val picture: PictureMediaModel? = null
+        val picture: PictureMediaModel? = null,
+        @Lob
+        @Column(name = "pageContent", columnDefinition="BLOB")
+        val pageContent: String = ""
 ) : AbstractJpaPersistable<Long>()

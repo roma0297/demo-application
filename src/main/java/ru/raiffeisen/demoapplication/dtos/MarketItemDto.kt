@@ -4,5 +4,6 @@ data class MarketItemDto(
     val id: Long,
     val name: String,
     val url: String,
-    val description: String
+    val description: String,
+    val pageContent: String
 )

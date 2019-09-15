@@ -17,7 +17,8 @@ class MarketItemConverter(
                 id = id,
                 name = localizationService.localize(input.name),
                 url = input.url,
-                description = localizationService.localize(input.description)
+                description = localizationService.localize(input.description),
+                pageContent = input.pageContent
         ))
     }
 }
