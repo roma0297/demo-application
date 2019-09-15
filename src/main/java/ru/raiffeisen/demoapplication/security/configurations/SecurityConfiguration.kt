@@ -84,7 +84,7 @@ class SecurityConfiguration(
                 "/**/*.otf"
             ).permitAll()
             .antMatchers("/api/auth/**").permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().permitAll()
 
         // Add our custom JWT security filter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter::class.java)
