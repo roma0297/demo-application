@@ -28,3 +28,7 @@ export interface IMarketItem {
   isShown: boolean;
 }
 
+export type TUserLoginData = {
+  password: string,
+  username: string
+}

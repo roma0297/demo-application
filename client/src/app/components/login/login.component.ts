@@ -1,3 +1,4 @@
+import { LoginService } from './../../services/login.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -37,7 +38,7 @@ export class LoginComponent {
             type: 'input',
             label: 'Имя пользователя',
             errorMessage: 'Пожалуйста, введите корректное имя пользователя',
-            fieldName: 'loginName',
+            fieldName: 'username',
             placeholder: 'Имя пользователя',
             value: '',
             required: true
@@ -49,7 +50,8 @@ export class LoginComponent {
             fieldName: 'password',
             placeholder: 'Пароль',
             value: '',
-            required: true
+            required: true,
+            inputType: 'password'
           },
           { 
             type: 'button',
@@ -69,7 +71,7 @@ export class LoginComponent {
     ]
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   onFormData(formData: TObject) {
     const data = formData.reduce((acc, { name, value }) => {
@@ -77,9 +79,8 @@ export class LoginComponent {
       return acc;
     }, {});
 
-    if (data.loginName === 'admin' && data.password === '1234') {
-      this.router.navigate(['/account']);
-    }
+    console.log('this.loginService.authenticateUser', this.loginService.authenticateUser);
+    this.loginService.authenticateUser(data).subscribe((res) => console.log('this is res'));
   }
 
 }

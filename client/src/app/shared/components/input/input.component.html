@@ -3,7 +3,7 @@
     <ng-container *ngIf="label"><span *ngIf="required">*</span>{{label}}</ng-container>
   </label>
 
-  <input type="text" class="form-control" [id]="name" [formControlName]="name" [placeholder]="placeholder"
+  <input [type]="inputType || 'text'" class="form-control" [id]="name" [formControlName]="name" [placeholder]="placeholder"
     [value]="value" [attr.required]="required ? 'required' : false" [attr.disabled]="disabled || null"
     [ngClass]="{'form-control-has-hint': hint}" />
 

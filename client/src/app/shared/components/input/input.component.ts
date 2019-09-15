@@ -17,5 +17,6 @@ export class InputComponent {
   @Input() hint: string;
   @Input() errorMessage: string;
   @Input() disabled: boolean;
+  @Input() inputType: string;
 }
 
