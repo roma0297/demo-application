@@ -21,8 +21,8 @@ class EntrepreneurApplicationStatusConverter(
                 title = localizationService.localize(input.title),
                 tooltipText = localizationService.localize(input.tooltipText),
                 description = localizationService.localize(input.description),
-                isCurrent = currentUser.currentStatus.ordinalNumber == input.ordinalNumber,
-                isLastFinished = currentUser.currentStatus.ordinalNumber - 1 == input.ordinalNumber
+                isCurrent = currentUser.currentStatus!!.ordinalNumber == input.ordinalNumber,
+                isLastFinished = currentUser.currentStatus!!.ordinalNumber - 1 == input.ordinalNumber
             ))
         }
 

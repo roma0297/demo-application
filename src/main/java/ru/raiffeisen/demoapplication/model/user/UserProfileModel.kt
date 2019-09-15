@@ -47,5 +47,5 @@ data class UserProfileModel(
     val locale: Locale = Locale.ENGLISH,
 
     @OneToOne
-    val currentStatus: EntrepreneurApplicationStatusModel
+    val currentStatus: EntrepreneurApplicationStatusModel?
 ) : AbstractJpaPersistable<Long>()
