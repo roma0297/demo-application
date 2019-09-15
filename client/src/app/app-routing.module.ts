@@ -13,8 +13,7 @@ const routes: Routes = [
   },
   { 
     path: '',
-    redirectTo: '/progress',
-    // redirectTo: '/main',
+    redirectTo: '/main',
     pathMatch: 'full'
   },
   {
