@@ -3,7 +3,7 @@ package ru.raiffeisen.demoapplication.security.service
 import org.springframework.stereotype.Service
 import ru.raiffeisen.demoapplication.common.operation.OperationResult
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
-import ru.raiffeisen.demoapplication.model.authorization.UserCredentialsModel
+import ru.raiffeisen.demoapplication.model.user.UserProfileModel
 import ru.raiffeisen.demoapplication.repositories.UserRepository
 
 @Service
@@ -18,7 +18,7 @@ class UserService(
         return OperationValueResult.success(email != null && userRepository.existsByEmail(email))
     }
 
-    fun save(user: UserCredentialsModel): OperationResult {
+    fun save(user: UserProfileModel): OperationResult {
         userRepository.save(user)
         return OperationResult.success()
     }

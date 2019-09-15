@@ -6,8 +6,8 @@ import ru.raiffeisen.demoapplication.common.command.Command
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.dtos.request.SignUpRequest
 import ru.raiffeisen.demoapplication.dtos.response.ApiResponseDto
-import ru.raiffeisen.demoapplication.model.authorization.RoleName
-import ru.raiffeisen.demoapplication.model.authorization.UserCredentialsModel
+import ru.raiffeisen.demoapplication.model.user.UserProfileModel
+import ru.raiffeisen.demoapplication.security.model.RoleName
 import ru.raiffeisen.demoapplication.repositories.RoleRepository
 import ru.raiffeisen.demoapplication.security.service.UserService
 
@@ -28,11 +28,11 @@ class SignupUserCommand(
             return OperationValueResult.failure("Email Address already in use!")
         }
 
-        val user = UserCredentialsModel(
-            input.name,
-            input.username,
-            input.email,
-            input.password
+        val user = UserProfileModel(
+            firstName = input.name ?: "",
+            username = input.username,
+            email = input.email,
+            password = input.password
         )
 
         val userRole =
@@ -40,7 +40,7 @@ class SignupUserCommand(
             return OperationValueResult.failure("There is no role ${RoleName.ROLE_USER} in the database")
 
         val encodedPassword = passwordEncoder.encode(user.password)
-        val newUser = UserCredentialsModel(
+        val newUser = UserProfileModel(
             password = encodedPassword,
             roles = setOf(userRole)
         )

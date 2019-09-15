@@ -2,17 +2,11 @@ package ru.raiffeisen.demoapplication.repositories
 
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
-import ru.raiffeisen.demoapplication.model.authorization.UserCredentialsModel
+import ru.raiffeisen.demoapplication.model.user.UserProfileModel
 
 @Repository
-interface UserRepository : CrudRepository<UserCredentialsModel, Long> {
-    fun findByEmail(email: String): UserCredentialsModel?
-
-    fun findByUsernameOrEmail(username: String, email: String): UserCredentialsModel?
-
-    fun findByIdIn(userIds: List<Long>): UserCredentialsModel?
-
-    fun findByUsername(username: String): UserCredentialsModel?
+interface UserRepository : CrudRepository<UserProfileModel, Long> {
+    fun findByUsernameOrEmail(username: String, email: String): UserProfileModel?
 
     fun existsByUsername(username: String): Boolean
 

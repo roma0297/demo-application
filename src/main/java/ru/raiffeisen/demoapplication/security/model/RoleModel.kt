@@ -1,10 +1,12 @@
-package ru.raiffeisen.demoapplication.model.authorization
+package ru.raiffeisen.demoapplication.security.model
 
 import org.hibernate.annotations.NaturalId
 import ru.raiffeisen.demoapplication.model.AbstractJpaPersistable
+import ru.raiffeisen.demoapplication.model.user.UserProfileModel
 import javax.persistence.Entity
 import javax.persistence.EnumType
 import javax.persistence.Enumerated
+import javax.persistence.ManyToMany
 import javax.persistence.Table
 
 enum class RoleName {
@@ -16,6 +18,8 @@ enum class RoleName {
 @Table(name = "roles")
 data class RoleModel(
     @Enumerated(EnumType.STRING)
-    @NaturalId
-    val name: RoleName? = null
+    val name: RoleName? = null,
+
+    @ManyToMany(mappedBy = "roles")
+    val users: Set<UserProfileModel> = emptySet()
 ) : AbstractJpaPersistable<Long>()

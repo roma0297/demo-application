@@ -16,7 +16,7 @@ class UserController {
     @GetMapping("/user")
     @PreAuthorize("hasRole('USER')")
     fun getCurrentUser(@CurrentUser currentUser: UserPrincipal): ResponseEntity<Any> {
-        val userSummary = UserSummary(currentUser.getId(), currentUser.username, currentUser.name)
+        val userSummary = UserSummary(currentUser.getId(), currentUser.username, currentUser.firstName)
 
         return ResponseEntity.ok(userSummary)
     }

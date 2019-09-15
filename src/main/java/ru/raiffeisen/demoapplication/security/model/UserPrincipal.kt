@@ -2,14 +2,13 @@ package ru.raiffeisen.demoapplication.security.model
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.security.core.GrantedAuthority
-import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import ru.raiffeisen.demoapplication.model.AbstractJpaPersistable
-import ru.raiffeisen.demoapplication.model.authorization.UserCredentialsModel
 import java.util.Objects
 
 data class UserPrincipal(
-    val name: String = "",
+    val firstName: String = "",
+    val lastName: String = "",
     private val username: String = "",
     @field:JsonIgnore val email: String = "",
     @field:JsonIgnore private val password: String = "",
@@ -38,18 +37,4 @@ data class UserPrincipal(
     }
 
     override fun hashCode(): Int = Objects.hash(getId())
-
-    companion object {
-        fun create(user: UserCredentialsModel): UserPrincipal {
-            val authorities = user.roles.map { role -> SimpleGrantedAuthority(role.name?.name) }
-
-            return UserPrincipal(
-                name = user.name ?: "",
-                username = user.username ?: "",
-                email = user.email ?: "",
-                password = user.password ?: "",
-                authorities = authorities
-            )
-        }
-    }
 }
