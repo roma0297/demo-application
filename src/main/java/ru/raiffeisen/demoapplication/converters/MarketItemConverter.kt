@@ -16,7 +16,7 @@ class MarketItemConverter(
         return OperationValueResult.success(MarketItemDto(
                 id = id,
                 name = localizationService.localize(input.name),
-                url = input.url,
+                tabLabel = input.tabLabel,
                 description = localizationService.localize(input.description),
                 pageContent = input.pageContent
         ))
