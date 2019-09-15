@@ -11,7 +11,6 @@ import javax.persistence.JoinTable
 import javax.persistence.ManyToMany
 import javax.persistence.OneToOne
 import javax.persistence.Table
-import javax.validation.constraints.NotBlank
 
 @Entity
 @Table(name = "user_profile")
@@ -27,12 +26,12 @@ data class UserProfileModel(
         joinColumns = [JoinColumn(name = "user_id")],
         inverseJoinColumns = [JoinColumn(name = "market_item_id")]
     )
-    val plugins: Set<MarketItemModel> = emptySet(),
+    var plugins: MutableSet<MarketItemModel> = mutableSetOf(),
 
     @OneToOne
     val picture: PictureMediaModel? = null,
 
-    val locale: Locale = Locale.ENGLISH,
+    val locale: Locale? = Locale.ENGLISH,
 
     @OneToOne
     val currentStatus: EntrepreneurApplicationStatusModel? = null

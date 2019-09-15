@@ -21,7 +21,7 @@ class RetrieveUserPluginsCommand(
             userPluginsService.getUserPlugins(userId).flatMap { marketItems ->
                 marketItems
                     .mapOperationTransform { marketItemConverter.convert(it) }
-                    .map { UserPluginsDto(it.toSet()) }
+                    .map { UserPluginsDto(it.toMutableSet()) }
             }
         }
     }

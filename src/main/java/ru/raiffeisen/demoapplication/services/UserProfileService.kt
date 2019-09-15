@@ -25,7 +25,7 @@ class UserProfileService(
         return OperationValueResult.success(userProfile)
     }
 
-    fun getUserPlugins(userId: Long): OperationValueResult<Set<MarketItemModel>> {
+    fun getUserPlugins(userId: Long): OperationValueResult<MutableSet<MarketItemModel>> {
         return getUserProfile(userId).map { it.plugins }
     }
 
@@ -35,9 +35,9 @@ class UserProfileService(
 
         val plugin = pluginResult.value!!
         return getUserProfile(userId).map { userProfile ->
-            val updatedUserProfile = userProfile.copy(plugins = userProfile.plugins + plugin)
+            userProfile.plugins.plusAssign(plugin)
             updateUserProfile(
-                updatedUserProfile,
+                userProfile,
                 "Unable to add plugin $pluginId to the user profile"
             )
         }
@@ -49,9 +49,9 @@ class UserProfileService(
 
         val plugin = pluginResult.value!!
         return getUserProfile(userId).map { userProfile ->
-            val updatedUserProfile = userProfile.copy(plugins = userProfile.plugins - plugin)
+            userProfile.plugins.minusAssign(plugin)
             updateUserProfile(
-                updatedUserProfile,
+                userProfile,
                 "Unable to remove plugin $pluginId from the user profile"
             )
         }
