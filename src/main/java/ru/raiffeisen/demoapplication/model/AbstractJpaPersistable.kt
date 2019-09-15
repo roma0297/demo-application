@@ -4,10 +4,10 @@ import org.springframework.data.util.ProxyUtils
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.MappedSuperclass
-import java.io.Serializable
+import java.util.Objects
 
 @MappedSuperclass
-abstract class AbstractJpaPersistable<T : Serializable> {
+abstract class AbstractJpaPersistable<T> {
 
 	@Id
 	@GeneratedValue
@@ -25,12 +25,7 @@ abstract class AbstractJpaPersistable<T : Serializable> {
 		return this.getId() == other.getId() && this.getId() != null
 	}
 
-	override fun hashCode(): Int = 31
+	override fun hashCode(): Int = Objects.hash(getId())
 
 	override fun toString() = "Entity of type ${javaClass.name} with id: $id"
-
-	companion object {
-		@JvmStatic
-		private val serialVersionUID = -5554308939380869754L
-	}
 }

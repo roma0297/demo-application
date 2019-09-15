@@ -5,15 +5,14 @@ import ru.raiffeisen.demoapplication.common.command.NoInputCommand
 import ru.raiffeisen.demoapplication.common.operation.OperationValueResult
 import ru.raiffeisen.demoapplication.converters.UserProfileConverter
 import ru.raiffeisen.demoapplication.dtos.response.UserProfileDto
-import ru.raiffeisen.demoapplication.security.service.CustomUserDetailsService
+import ru.raiffeisen.demoapplication.services.UserContextService
 import ru.raiffeisen.demoapplication.services.UserProfileService
 
 @Component
 class RetrieveUserProfileCommand(
     private val userProfileService: UserProfileService,
     private val userProfileConverter: UserProfileConverter,
-    //private val userContextService: UserContextService
-    private val userContextService: CustomUserDetailsService
+    private val userContextService: UserContextService
 ): NoInputCommand<OperationValueResult<UserProfileDto>>() {
 
     override fun doProcess(): OperationValueResult<UserProfileDto> {

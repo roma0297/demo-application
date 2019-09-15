@@ -8,8 +8,11 @@ import ru.raiffeisen.demoapplication.dtos.response.MarketItemDto
 import ru.raiffeisen.demoapplication.services.MarketItemsService
 
 @Component
-class RetrieveMarketItemCommand(val marketItemsService: MarketItemsService,
-                                val marketItemConverter: MarketItemConverter) : Command<Long, OperationValueResult<MarketItemDto>> {
+class RetrieveMarketItemCommand(
+    private val marketItemsService: MarketItemsService,
+    private val marketItemConverter: MarketItemConverter
+) : Command<Long, OperationValueResult<MarketItemDto>> {
+
     override fun process(input: Long): OperationValueResult<MarketItemDto> {
         return marketItemsService.getMarketItem(input).flatMap { marketItemConverter.convert(it) }
     }

@@ -19,8 +19,7 @@ class RetrieveMarketItemsCommand(
 
     override fun process(input: Pageable): OperationValueResult<Page<MarketItemDto>> {
         return marketItemsService.getMarketItems(input).flatMap { page ->
-            page
-                .mapOperationTransform { marketItemConverter.convert(it) }
+            page.mapOperationTransform { marketItemConverter.convert(it) }
                 .map { PageImpl<MarketItemDto>(it) as Page<MarketItemDto> }
         }
     }

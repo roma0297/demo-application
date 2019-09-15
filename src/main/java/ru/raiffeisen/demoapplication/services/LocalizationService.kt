@@ -7,7 +7,6 @@ import java.util.Locale
 
 @Service
 class LocalizationService {
-
     fun localize(localizedString: LocalizedStringModel?): String {
         return if (Locale.ENGLISH == LocaleContextHolder.getLocale()) {
             localizedString?.englishTranslation ?: ""
