@@ -3,6 +3,7 @@ package ru.raiffeisen.demoapplication.model.user
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import ru.raiffeisen.demoapplication.model.AbstractJpaPersistable
+import ru.raiffeisen.demoapplication.model.EntrepreneurApplicationStatusModel
 import ru.raiffeisen.demoapplication.model.media.PictureMediaModel
 import java.util.Locale
 import javax.persistence.Entity
@@ -28,5 +29,7 @@ data class UserProfileModel(
     val plugins: Set<MarketItemModel> = emptySet(),
     @OneToOne
     val picture: PictureMediaModel? = null,
-    val locale: Locale = Locale.ENGLISH
+    val locale: Locale = Locale.ENGLISH,
+    @OneToOne
+    val currentStatus: EntrepreneurApplicationStatusModel
 ) : AbstractJpaPersistable<Long>()
