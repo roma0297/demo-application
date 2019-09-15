@@ -2,8 +2,11 @@
 <mat-tab-group #matTab>
   <ng-container *ngFor="let tab of tabs">
     <mat-tab
+      (click)="removeTab(tab)"
+      class="testest"
       [disabled]="!tab.content || null"
-      [label]="tab.label">
+      [label]="tab.label"
+      [ngStyle]="{'color': 'red !important'}">
       <ng-template [cdkPortalOutlet]="tab.content"></ng-template>
     </mat-tab>
   </ng-container>

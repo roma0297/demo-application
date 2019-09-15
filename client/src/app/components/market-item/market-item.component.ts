@@ -20,7 +20,8 @@ export class MarketItemComponent implements OnInit {
   }
 
   addMarketItem(marketItem: IMarketItem) {
-    this.accountService.manageMarketItems(marketItem, true);
+    // this.accountService.manageMarketItems(marketItem, true);
+    this.accountService.addMarketItem(marketItem);
   }
 
 }

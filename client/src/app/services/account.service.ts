@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { MarketItem } from './../components/market-item/market-item.model';
 import { Injectable, Injector, Inject } from '@angular/core';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { Subject } from 'rxjs';
 
-import { TTab, IMarketItem } from './../../common/types/market-place.d';
+import { TTab, IMarketItem, TObject } from './../../common/types/market-place.d';
 import { AnalyticsComponent } from '../components/analytics/analytics.component';
 import { CreditStockComponent } from '../components/credit-stock/credit-stock.component';
 import { ExtensionWrapperComponent } from '../components/extension-wrapper/extension-wrapper.component';
@@ -15,60 +14,10 @@ import { getTabConfig } from '../configs/tab-configs';
   providedIn: 'root'
 })
 export class AccountService {
-
+  // should be refactored
+  error: TObject = {};
   marketItemsSubject: Subject<IMarketItem[]> = new Subject<IMarketItem[]>();
-  private marketItemsList: IMarketItem[] =   [
-    new MarketItem({
-      id: 1,
-      itemName: 'target',
-      name: 'Таргетированная реклама',
-      subtitle: 'Сервис по продвижению бизнеса в интернете',
-      url: '/assets/img/target.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      enabled: false,
-      isShown: true
-    }),
-    new MarketItem({
-      id: 2,
-      itemName: 'calls',
-      name: 'Холодные звонки',
-      subtitle: 'Сервис по продвижению бизнеса по телефону',
-      url: '/assets/img/calls.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      enabled: false,
-      isShown: true
-    }),
-    new MarketItem({
-      id: 3,
-      itemName: 'staffing',
-      name: 'Подбор персонала',
-      subtitle: 'Сервис по подбору персонала на открытые вакансии',
-      url: '/assets/img/staffing.jpeg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      enabled: false,
-      isShown: true
-    }),
-    new MarketItem({
-      id: 4,
-      itemName: 'support',
-      name: 'Поддержка сайта',
-      subtitle: 'Сервис по поддержке сайта',
-      url: '/assets/img/tech-support.png',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      enabled: false,
-      isShown: true
-    }),
-    new MarketItem({
-      id: 5,
-      itemName: 'audit',
-      name: 'Выездной аудит',
-      subtitle: 'Сервис по проведению внешнего аудита',
-      url: '/assets/img/audit.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      enabled: false,
-      isShown: true
-    })
-  ];
+  private marketItemsList: IMarketItem[] = [];
 
   tabsSubject: Subject<TTab[]> = new Subject<TTab[]>();
   private tabsList: TTab[] = [];
@@ -78,6 +27,7 @@ export class AccountService {
     @Inject(BASE_URL) private baseUrl: string,
     private http: HttpClient) {
       this.getMarketItems();
+      this.getUsersPlugins();
     }
 
   get tabs() {
@@ -98,8 +48,63 @@ export class AccountService {
     this.marketItemsSubject.next(this.marketItemsList);
   }
 
+  addMarketItem(body: IMarketItem) {
+    return this.http
+      .post(`${this.baseUrl}/api/account/plugins/add/${body.id}`, {})
+      .subscribe(() => {
+        const index = this.marketItems.findIndex((marketItem: IMarketItem) => marketItem.id === body.id);
+        const updatedItem = { ...body, enabled: true, isShown: false };
+        this.marketItems = [...this.marketItems.slice(0, index), updatedItem, ...this.marketItems.slice(index + 1)];
+        // removing element from panel after animation
+        setTimeout(() => {
+          this.marketItems = [...this.marketItems.slice(0, index), ...this.marketItems.slice(index + 1)];
+        }, 1300);
+        const { id, name: label, itemName: tabName } = body;
+        const newTab = {
+          id,
+          label,
+          tabName,
+          content: new ComponentPortal(ExtensionWrapperComponent, null, this.createInjector(getTabConfig(tabName)))
+        };
+        this.tabs = [...this.tabs, newTab];
+      },
+      (error: Error) => this.error = error
+    );
+  }
+
   getMarketItems() {
-    return this.http.get(`${this.baseUrl}/api/account/marketplace`).subscribe(res => console.log('this is reees!!', res));
+    return this.http
+      .get(`${this.baseUrl}/api/account/marketplace`)
+      .subscribe((marketItems: any) => {
+        this.marketItems = (<IMarketItem[]>marketItems.content);
+      },
+      (error: Error) => this.error = error
+    );
+  }
+
+  getUsersPlugins() {
+    return this.http
+      .get(`${this.baseUrl}/api/account/plugins`)
+      .subscribe((response: TObject) => {
+        const { plugins } = response;
+        const newTabs = plugins.map(({ id, name: label, itemName: tabName }) => ({
+          id,
+          label,
+          tabName,
+          content: new ComponentPortal(ExtensionWrapperComponent, null, this.createInjector(getTabConfig(tabName)))
+        }));
+        this.tabs = [...this.tabsList, ...newTabs];
+      },
+      (error: Error) => this.error = error
+    );
+  }
+
+  removeUserPlugin(body) {
+    return this.http
+      .post(`${this.baseUrl}/api/account/plugins/remove/${body.id}`, {})
+      .subscribe(() => {
+        this.getMarketItems();
+      });
   }
 
   setTablistConfig(component) {
@@ -133,10 +138,10 @@ export class AccountService {
       {
         id: 20000006,
         label: 'Расширения',
+        tabName: 'extentions',
         content: new ComponentPortal(component)
       }
     ];
-    this.tabsSubject.next(this.tabs);
   }
 
   manageTabList(marketItem: IMarketItem, enabled: boolean) {

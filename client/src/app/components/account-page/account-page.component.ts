@@ -27,4 +27,9 @@ export class AccountPageComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
   }
 
+  removeTab(tab) {
+    // To remove tab
+    // console.log('hello', tab);
+  }
+
 }

@@ -13,7 +13,6 @@ const routes: Routes = [
   },
   { 
     path: '',
-    // redirectTo: '/account',
     redirectTo: '/main',
     pathMatch: 'full'
   },
@@ -29,16 +28,6 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
-  // { path: 'hero/:id',      component: HeroDetailComponent },
-  // {
-  //   path: 'heroes',
-  //   component: HeroListComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-  // { path: '',
-  //   redirectTo: '/heroes',
-  //   pathMatch: 'full'
-  // },
   { path: '**', component: HomePageComponent }
 ];
 
