@@ -23,7 +23,7 @@
     <h2.version>1.4.197</h2.version>
     <kotlin-jdk.version>1.3.50</kotlin-jdk.version>
     <commons-collections4.version>4.4</commons-collections4.version>
-    <jackson.version>2.9.8</jackson.version>
+    <jackson.version>2.10.3</jackson.version>
     <mockk.version>1.9.3</mockk.version>
     <mockito.version>1.10.19</mockito.version>
     <log4j.version>2.12.1</log4j.version>
